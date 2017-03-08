@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVSkalkul", "IVSkalkul\IVSkalkul.csproj", "{3B474017-E0D9-4CB1-8F78-F1D6F89A106A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMG", "IMG", "{1CBAC51E-E7B7-4B8E-85E1-BEC8B141E654}"
+	ProjectSection(SolutionItems) = preProject
+		IVSkalkul\IMG\ans.png = IVSkalkul\IMG\ans.png
+		IVSkalkul\IMG\arrow-left.png = IVSkalkul\IMG\arrow-left.png
+		IVSkalkul\IMG\arrow-right.png = IVSkalkul\IMG\arrow-right.png
+		IVSkalkul\IMG\back.png = IVSkalkul\IMG\back.png
+		IVSkalkul\IMG\calculator (1).png = IVSkalkul\IMG\calculator (1).png
+		IVSkalkul\IMG\calculator.png = IVSkalkul\IMG\calculator.png
+		IVSkalkul\IMG\close.png = IVSkalkul\IMG\close.png
+		IVSkalkul\IMG\close2.png = IVSkalkul\IMG\close2.png
+		IVSkalkul\IMG\closewhite.png = IVSkalkul\IMG\closewhite.png
+		IVSkalkul\IMG\cursor.png = IVSkalkul\IMG\cursor.png
+		IVSkalkul\IMG\division.png = IVSkalkul\IMG\division.png
+		IVSkalkul\IMG\equal.png = IVSkalkul\IMG\equal.png
+		IVSkalkul\IMG\help.png = IVSkalkul\IMG\help.png
+		IVSkalkul\IMG\Icon.ico = IVSkalkul\IMG\Icon.ico
+		IVSkalkul\IMG\krat.png = IVSkalkul\IMG\krat.png
+		IVSkalkul\IMG\minimize.png = IVSkalkul\IMG\minimize.png
+		IVSkalkul\IMG\minimizewhite.png = IVSkalkul\IMG\minimizewhite.png
+		IVSkalkul\IMG\mocnina.png = IVSkalkul\IMG\mocnina.png
+		IVSkalkul\IMG\odmocnina.png = IVSkalkul\IMG\odmocnina.png
+		IVSkalkul\IMG\switch.png = IVSkalkul\IMG\switch.png
+		IVSkalkul\IMG\wrench.png = IVSkalkul\IMG\wrench.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVSkalkulTests", "IVSkalkulTests\IVSkalkulTests.csproj", "{8B36EB4D-C962-49ED-8121-9DBDCD8EA247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVSkalkul_lib", "IVSkalkul_lib\IVSkalkul_lib.csproj", "{810299E0-0486-4444-8107-AFD72BC7CF39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B474017-E0D9-4CB1-8F78-F1D6F89A106A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B474017-E0D9-4CB1-8F78-F1D6F89A106A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B474017-E0D9-4CB1-8F78-F1D6F89A106A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B474017-E0D9-4CB1-8F78-F1D6F89A106A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B36EB4D-C962-49ED-8121-9DBDCD8EA247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B36EB4D-C962-49ED-8121-9DBDCD8EA247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B36EB4D-C962-49ED-8121-9DBDCD8EA247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B36EB4D-C962-49ED-8121-9DBDCD8EA247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810299E0-0486-4444-8107-AFD72BC7CF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810299E0-0486-4444-8107-AFD72BC7CF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810299E0-0486-4444-8107-AFD72BC7CF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810299E0-0486-4444-8107-AFD72BC7CF39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,19 @@
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.pdb
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.csprojResolveAssemblyReference.cache
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.pdb
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.dll
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.pdb
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.csprojResolveAssemblyReference.cache
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.dll
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.csprojResolveAssemblyReference.cache

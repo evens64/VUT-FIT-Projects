@@ -1,0 +1,4 @@
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Release\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\bin\Release\IVSkalkul_lib.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Release\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Release\IVSkalkul_lib.pdb

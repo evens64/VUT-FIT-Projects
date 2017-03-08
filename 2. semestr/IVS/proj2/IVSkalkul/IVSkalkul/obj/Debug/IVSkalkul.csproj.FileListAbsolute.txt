@@ -1,0 +1,87 @@
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.config
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.pdb
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignColors.dll
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csprojResolveAssemblyReference.cache
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.g.cs
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\App.g.cs
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.cache
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.lref
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.baml
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.g.resources
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.Properties.Resources.resources
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csproj.GenerateResource.Cache
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe
+C:\Users\PhillWidesStation\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.pdb
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.config
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.pdb
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.pdb
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignColors.dll
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csprojResolveAssemblyReference.cache
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.g.cs
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\App.g.cs
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.cache
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.lref
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.baml
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.g.resources
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.Properties.Resources.resources
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csproj.GenerateResource.Cache
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.config
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignColors.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csprojResolveAssemblyReference.cache
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.g.cs
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\App.g.cs
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.cache
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.lref
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.baml
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.g.resources
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.Properties.Resources.resources
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csproj.GenerateResource.Cache
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\Mindscape.WpfElements.dll
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\Mindscape.WpfElements.xml
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.config
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul_lib.dll
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul_lib.pdb
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.manifest
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.application
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe.manifest
+C:\Users\Jakub Frýz\Documents\Git\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.application
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.manifest
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.application
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul_lib.dll
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul_lib.pdb
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe.manifest
+C:\Users\PhillWidesStation\IVS2\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.application
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.config
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe.manifest
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.application
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.exe
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul_lib.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignColors.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\bin\Debug\IVSkalkul_lib.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csprojResolveAssemblyReference.cache
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.g.cs
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\App.g.cs
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.cache
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul_MarkupCompile.lref
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\MainWindow.baml
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.g.resources
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.Properties.Resources.resources
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.csproj.GenerateResource.Cache
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe.manifest
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.application
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.exe
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul\obj\Debug\IVSkalkul.pdb

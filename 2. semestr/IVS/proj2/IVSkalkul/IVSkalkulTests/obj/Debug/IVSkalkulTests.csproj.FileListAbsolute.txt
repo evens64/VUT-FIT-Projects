@@ -1,0 +1,13 @@
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\obj\Debug\IVSkalkulTests.csprojResolveAssemblyReference.cache
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\obj\Debug\IVSkalkulTests.dll
+C:\Users\Jakub Frýz\Documents\[backup]Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\obj\Debug\IVSkalkulTests.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\IVSkalkulTests.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\IVSkalkulTests.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\IVSkalkul.exe
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\IVSkalkul_lib.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\IVSkalkul.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\bin\Debug\IVSkalkul_lib.pdb
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\obj\Debug\IVSkalkulTests.csprojResolveAssemblyReference.cache
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\obj\Debug\IVSkalkulTests.dll
+D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkulTests\obj\Debug\IVSkalkulTests.pdb
