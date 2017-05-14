@@ -1,0 +1,92 @@
+ICP: zadání týmového projektu
+
+Název projektu
+
+	Navrhněte a implementujte aplikaci HRA2017
+
+Základní zadání (je téměř shodné s předmětem IJA)
+
+	Navrhněte a implementujte aplikaci Pasians (Solitaire) Klondike, která vychází ze stejnojmenné karetní hry.
+	Poznámka: Zadání definuje podstatné vlastnosti aplikace, které musí být splněny. Předpokládá se, že detaily řešení si doplní řešitelské týmy. Týmy budou dvoučlenné, výjimečně může být tým i tříčlenný a bude řešit rozšířené zadání (viz níže). Jeden člen týmu je vedoucí a ten projekt odevzdá podle pokynů uvedených níže.
+
+Specifikace požadavků
+
+	aplikace bude implementovat základní pravidla hry, která jsou uvedena na Wikipedii.
+	řešitelé mohou zvolit variantu uvedených pravidel či rozšíření podle svého uvážení
+	další požadavky:
+	bude možné rozehrát až 4 hry současně
+		pokud bude rozehrána pouze jedna hra, bude plocha grafického rozhraní obsahovat pouze tuto hru (jedno hrací plátno)
+		pokud bude rozehrána více než jedna hra, bude plocha grafického rozhraní rozdělena do 4 dlaždic, každá pro jednu hru (hrací plátno)
+		nevyužité dlaždice nebudou nic obsahovat
+		počet rozehraných her lze měnit za běhu
+	kdykoliv je možné hru ukončit
+	každá hra umožňuje operaci undo (alespoň pět tahů)
+	rozehranou hru je možné uložit a znovu načíst (historii tahů pro undo není třeba ukládat)
+	aplikace nabízí možnost nápovědy tahu (na žádost zobrazí vhodným způsobem jaké tahy je možné provést)
+	součástí aplikace bude textové (command line) i grafické uživatelské rozhraní
+	grafické uživatelské rozhraní bude obsahovat
+		hrací plátno (plátna) s kartami
+		ovládací prvky (uložit, načíst, ukončit hru, založit novou hru, ...)
+	textové uživatelské rozhraní bude ve vhodné formě obsahovat v podstatě totéž, tj. zobrzí aktuální stav hry a umožní všechny dovolené operace
+
+Rozšíření pro tříčlenný tým
+
+	Aplikace bude rozšířena o možnost on-line hry a bude typu klient-server
+	Aplikace umožňuje vše, co definuje zadání pro dvoučlenný tým s následujícími změnami:
+		herní logika je implementována na serveru
+		klient může vytvořit hru nebo se připojit k již rozehrané hře na serveru
+		připojení hry znamená, že klient má možnost sledovat tahy jiného hráče, aktivně se nezapojuje
+	Server
+		implementuje herní logiku
+		spravuje klienty (tj. správa událostí, notifikace připojených klientů o změně stavu her, ...)
+		autentizaci a autorizaci uživatelů není třeba řešit - při prvním kontaktu klienta se serverem se mu např. přidělí unikátní název/kód/číslo, kterým se poté klient identifikuje
+
+Součást odevzdání
+
+	připravte alespoň jednu uloženou rozehranou hru; rozehraná hra bude několik tahů před ukončením
+
+Minimum pro získání zápočtu
+
+	návrh a implementace všech základních požadavků
+
+Další požadavky
+
+	Zadání definuje podstatné vlastnosti aplikace, které musí být splněny. Předpokládá se, že detaily řešení si doplní řešitelské týmy.
+	Při návrhu postupujte tak, aby výsledný program byl dobře použitelný. Hodnotit se bude nejen to, zda splňuje výše uvedené požadavky, ale také JAK je splňuje.
+	Návrh musí oddělit vlastní model aplikace od GUI (navrhněte vhodné rozhraní). Demonstrujte to vytvořením testovací aplikace "hra2017-cli" s použitím stejných (přeložených) modulů bez použití toolkitu a pouze s textovým rozhraním (použijete pouze ISO C++ streamy cin/cout na terminál ve stylu příkazové řádky).
+	Návrh programu zdokumentujte ve zdrojovém kódu ve formátu pro program "doxygen".
+	Používejte vhodné návrhové vzory (Design Patterns) - viz literatura.
+	Pro vytváření menu, dialogů a dalších komponent grafického uživatelského rozhraní (GUI) použijte toolkit QT 5.5 (nainstalováno v učebnách a na serveru "merlin" v adresáři /usr/local/share/Qt-5.5.1/). Pokud pro vývoj použijete verzi novější/starší než je na učebnách, předpokládám, že zajistíte zpětnou/dopřednou kompatibilitu vašich programů. (V případě problémů, počítejte s nutností předvedení překladu/sestavení/běhu aplikace na vašem notebooku. Toto se nedoporučuje.)
+	Protože toolkity jsou přenositelné na více platforem, měly by vaše programy fungovat minimálně na Linuxu i na Windows. (Nejen Java umožňuje psaní přenositelných aplikací.) Je jedno na které platformě proběhne vývoj aplikací, jen dbejte na pravidla psaní přenositelných programů.
+	(Testovat se bude na Linuxu = server merlin, ale Makefile nesmí být závislý na konkrétním adresáři s lokální instalací toolkitu.)
+	Na vytvoření GUI dialogů a menu můžete použít interaktivní editory/generátory.
+	Použijte C++11. (Pokud použijete knihovny z BOOST, tak použité soubory přibalte. Existuje nástroj BCP pro výběr podmnožiny Boost.).
+	Programy budou vytvořeny zadáním příkazu "make" v adresáři s rozbalenými zdrojovými kódy projektu (Pozor - bude se automaticky překládat). Musíte vytvořit soubor Makefile, který nesmí obsahovat absolutní cesty k souborům. Výsledné programy se budou jmenovat "hra2017" a "hra2017-cli" . Pro testovací účely půjde vše spustit použitím "make run".
+	Součástí projektu bude programová dokumentace vytvořená programem Doxygen (konfigurační soubor nastavte na HTML výstup se zahrnutím zdrojových textů: SOURCE_BROWSER = YES). Dokumentace se vygeneruje automaticky (= nezabalovat do archivu) při zadání "make doxygen" a bude uložena v podadresáři doc.
+
+Poznámky k odevzdávání
+
+	Termín odevzdání je uveden v IS.
+	Řešení zabalené ve formátu .zip (nebo .tar.gz) odevzdá pouze vedoucí týmu do IS a to s dostatečným předstihem před uzávěrkou. (Nikdo nebude psát, že neodevzdal, protože *** a posílat to poštou.)
+	Jméno odevzdaného souboru musí mít tvar: xname01-xname02.zip, kde xname01 je jméno vedoucího.
+	POZOR: Archiv může mít maximálně 2MB, aby mohl být vložen do IS.
+	Odevzdaný archiv obsahuje minimálně tuto adresářovou strukturu:
+		./src/*			- zdrojové texty
+		./examples/*	- příklady (pro testování)
+		./doc/			- dokumentace (bude později generován: "make doxygen")
+		./README.txt	- základní přehled o co jde, Autoři, poznámky, ...
+		./Makefile		- zavolá rekurzivně make na src/Makefile, případně na generování dokumentace atd
+	Neodevzdávejte nic, co lze vytvořit pomocí "make" (spustitelné programy ani dokumentaci, kterou lze vygenerovat použitím "make doxygen").
+	Poznámka: Příkaz "make clean" všechny produkty překladu smaže, "make pack" vytvoří archiv pro odevzdání - zkontrolujte, zda obsahuje vše potřebné rozbalením v prázdném adresáři a překladem/spuštěním.
+	Všechny zdrojové soubory musí obsahovat na začátku komentář se jmény autorů daného modulu, popisem obsahu modulu, atd. Z komentářů by také mělo být patrné, které části byly napsány ručně a které vygenerovány automaticky.
+
+Poznámky k hodnocení
+
+	Projekt je hodnocen na stupnici 0-100 procent/bodů.
+	Po ohodnocení může dojít k přepočtu bodů na jednotlivé členy týmu podle návrhu vedoucího týmu, který je zakódován do jména odevzdaného souboru (formát jména pak je: xname01-xname02-AA-BB.zip součet AA+BB=100, POZOR: pro rovnoměrné rozdělení AA=BB=50% není třeba uvádět "-50-50" a je to preferovaná možnost).
+	Hodnocení zahrnuje kvalitu OO návrhu, kvalitu implementace v C++, dodržování stylu psaní programu (odsazování, kvalita komentářů, vhodné identifikátory) a především funkčnost programu. Pokud budou ve zdrojových textech chybět podstatné komentáře (zvláště jména autorů), bude projekt hodnocen 0b.
+	POZOR:
+	Pokud nepůjde přeložit příkazem make = 0b nebo předvedete na svém notebooku a vysvětlíte kde byl problém,
+	pokud nebudou komentáře se jmény autorů = 0b.
+	Zcela nevhodně formátovaný a nečitelný kód = 0b.
+	Plagiáty atd. = 0b + návštěva u disciplinární komise.
