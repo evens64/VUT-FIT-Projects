@@ -1,0 +1,75 @@
+% Dokumentace IPK projekt 2
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[left=2cm, text={17cm, 24cm}, top=3cm]{geometry}
+\usepackage[IL2]{fontenc}
+\usepackage{times}	% Times New Roman font
+
+\begin{document}
+
+\begin{titlepage}
+	
+	\begin{center}
+		
+		\textsc{{\Huge Vysoké učení technické v~Brně}\\\medskip{\huge Fakulta informačních technologií}}
+		
+		\vspace{\stretch{0.382}}
+		
+		{\LARGE Počítačové komunikace a sítě -- 3. projekt}\\\medskip{\Huge Chatovací klient}
+		
+		\vspace{\stretch{0.618}}
+		
+		%\enlargethispage{0.5cm}
+		
+		{\Large \today \hfill Jakub Frýz}
+		
+	\end{center}
+	
+\end{titlepage}
+
+\section*{Úvod}
+
+Tato dokumentace se věnuje procesu (co dělá) chatovacího klienta jakožto projektu do IPK.
+
+Projekt byl primárně vyvíjen na \textbf{Kubuntu 17.04} Zesty Zapus. Byl i otestován na referenčním přístroji \textbf{CentOS7}.
+
+V následujících sekcí jsou jednotlivě popsány základní části programu. Většina částí má ošetřené chyby výpisem chybové zprávy a ukončením.
+
+
+\section{Argumenty}
+
+Pravděpodobně nejlehčí část projektu. Program očekává 4 argumenty, ale kontroluje pouze první a třetí. Pro ulehčení práce jsou argumenty převedy na typ \texttt{string}. Není-li jeden z nich \texttt{-i} a druhý z nich \texttt{-u}, program se ukončí s chybou. Jsou-li duplicitní, program se též ukončí chybou. Uživatelské jméno se uloží do proměnné \texttt{username} typu \texttt{string} a IP se ulože pouze index v argumentech (index \texttt{i+2} z důvodu, že funkce \texttt{inet\_pton()} nepřijme řetězec typu \texttt{string}, ale pouze typu \texttt{char*}, a proto se ukládá index na původní argumenty, které jsou navíc o jedno posunuty).
+
+\section{Připojení k serveru}
+
+Nejdříve se provede vytvoření socketu (funkce \texttt{socket()}) a nacpou se potřebné informace do struktury \texttt{server\_addr} jako port a IP adresa. Zde se zároveň i zkontroluje správnost IP adresy (funkce \texttt{inet\_pton()}).
+
+Pak už nezbývá nic jiného než se připojit na server (funkce \texttt{connect()}).
+
+\section{Tvorba vlákna}
+
+Pro správnou funkcionalitu klienta je potřeba obsluhovat \texttt{stdin} a \texttt{stdout} zároveň. Tento problém jsem se rozhodl vyřešit pomocí POSIX vlákna (\texttt{pthread}). Na vytvořeném (funkce \texttt{pthread\_create()}) vlákně mi pak jede funkce \texttt{void *chat\_recv(void *threadarg)}, která je podrobněji popsána v sekci \ref{recv}. Vlákno se před ohlášením a po přijmutí signálu \texttt{SIGINT} ukončí (funkce \texttt{pthread\_cancel()} a \texttt{pthread\_join()}).
+
+\section{Odesílání zpráv}
+
+Odesílání zpráv jsem zanechal v hlavním procesu programu. Zprávy se odesílají pomocí funkce \texttt{send()}. Prvně odešle zpráva, že se uživatel přihlásil. 
+
+Poté se program zacyklí a při každém cyklu kontroluje, zda-li nebyl přijmut signál \texttt{SIGINT}. Zde je další cyklus, který obsluhuje neblokující čtení ze \texttt{stdin} za pomoci funkce \texttt{kbhit()}. Funkce \texttt{kbhit()} ve své podstatě přidává časový limit pro čtení ze vstupu. Po zmačknutí \texttt{ENTER} může funkce \texttt{getline()} načíst zprávu do proměnné \texttt{line} typu \texttt{string}. Zkontroluje se, že zpráva není prázdná. Následuje spojení zprávy. To se provede do proměnné \texttt{msg}, do které se postupně přiřadí uživatelské jméno, dvojtečka s mezerou, zpráva samotná a zalomení řádku (\verb|\r\n|). Výsledná zpráva se musí ještě před odesláním převést na typ \texttt{char*} (funkce \texttt{convert()}) a pak se může odeslat.
+
+Po přijmutí signálu \texttt{SIGINT} se cyklus ukončí a odešle se odhlašovací zpráva.
+
+\section{Přijímání zpráv}\label{recv}
+
+Zprávy se přijímají ve vlákně a víceméně to funguje stejně odesílání zpráv. Je zde cyklus, který čeká na příchozí zprávy (funkce \texttt{recv()}). Nejdříve se však vyčistí \texttt{buffer}, do kterého se zpráva uloží. Potom se zpráva bez jakýchkoliv úprav pošle přímo na standardní výstup \texttt{stdout}.
+
+\section{Signál \texttt{SIGINT}}
+
+Pro obsluhu signálu \texttt{SIGINT} je zde funkce \texttt{sigint\_handler()}. Ta je určena pomocí funkce \texttt{signal()} už na začátku programu. V případě, že program příjme signál SIGINT, je funkce \texttt{sigint\_handler()} vyvolána a pozmění hodnotu globální proměnné \texttt{stop}, což zapříčiní ukončení jinak nekonečných cyklů pro odesílání a přijímání zpráv.
+
+\section*{Závěr}
+
+Přiznám se, že jsem měl z tohoto projektu trochu strach, ale nakonec jsem se bavil. Spoustu jsem se toho přiučil. Před tímhle projektem jsem vůbec neměl ani ponětí o obsluze signálů či neblokujícím čtení ze vstupu. Myslel jsem si, že zprovoznění chatovacího klienta bude trošku obsáhlejší, co se do počtu řádků kódu a použitých příkazů, ale asi jsem se mýlil. Sice nemůžu konkurovat \textit{Facebooku} nebo \textit{Skypu}, ale rozhodně se můžu pochlubit tím, že jsem si vytvořil chatovacího klienta (s pár \uv{mouchama}). Teď už by to chtělo jen grafickou nástavbu.
+
+\end{document}

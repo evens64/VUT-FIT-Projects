@@ -1,0 +1,54 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+
+# My files
+proj1/ftrest
+proj1/ftrestd
+*.tar.gz
+
+\.vscode/
+*.aux
+*.log
+*.gz
+
+proj2/chat_client
+proj2/chat_test
+proj2/chat_recv
+proj2/chat_send
+
+*.dvi
+
+*.ps
+
+*.tgz
