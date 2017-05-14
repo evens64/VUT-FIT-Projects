@@ -1,0 +1,62 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[latin2]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[left=2cm, text={17cm, 24cm}, top=3cm]{geometry}
+\usepackage{times}	% Times New Roman font
+\usepackage[numbers]{natbib}
+
+%\bibliographystyle{csplainnat}
+%\bibliographystyle{czechiso}
+\bibliographystyle{czplain}
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+
+\textsc{{\Huge Vysoké uèení technické v~Brnì}\\\medskip{\huge Fakulta informaèních technologií}}
+
+\vspace{\stretch{0.382}}
+
+{\LARGE Typografie a publikování -- 4. projekt}\\\medskip{\Huge Bibliografické citace}
+
+\vspace{\stretch{0.618}}
+
+{\Large \today \hfill Jakub Frýz}
+
+\end{center}
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------------
+
+% 2 monografie (alespoò jedna musí být cizojazyèná)
+% 3 elektronické dokumenty (online)
+% 1 seriálovou publikaci (celý ti¹tìný èasopis èi sborník z konference)
+% 2 èlánky v seriálové publikaci (zahranièní ti¹tìné èlánky)
+% 2 kvalifikaèní práce (bakaláøské, diplomové nebo disertaèní)
+
+%% POZN.: Text není konzistentní, v dobì psaní jsem nemìl doma ¾ádnou publikaci o typografii, ale snad obsahuje v¹echny citace, co byly v zadání.
+
+
+\section{Mass Effect: Andromeda}
+
+Mass Effect: Andromeda (zkrácenì MEA) je pokraèovaní velmi úspì¹né znaèky od kanadského studia BioWare. Po celkem kontroverzním ukonèení pøedchozí trilogie tu máme pokus o pokraèování, zasazené mimo mleènou dráhu spoleènì s novými postavami rùzných charakterù, které se v¹ak nevydaøilo podle oèekávání. Obrovský vesmír s bohatou historií a zajímavými rasami nezachrání pøekvapivì kli¹ovitý a lineární pøíbìh bez dùle¾itých voleb.~\cite{score_mea}
+
+\section{Úèty ve Windows Server 2008}
+
+Úèty \textit{Administrator} a \textit{Guest} jsou vytvoøeny automaticky ve Windows. \textbf{Administrator} je urèený ke správì a konfigurace poèítaèe. \textbf{Guest} je pro u¾ivatele a nemají pøístup ke v¹em nastavení jako \textit{Admin}.~\cite{site}
+
+\section{Bib\TeX\ a ÈSN ISO 690}
+
+Na zaèátku tvorby tohoto dokumentu jsem pou¾il styl \texttt{czechiso} vytvoøený Ing. Davidem Martinkem, av¹ak jak i autor tvrdí~\cite{bib_czechiso}, tento styl zcela nesplòuje normu ÈSN ISO 690. Proto jsem hledal dále a na¹el jsem styl \texttt{csplainnat}~\cite{bib_csplainnat}, jeho¾ autorem je David Mudrák. Tento styl mi v¹ak pøíli¹ nevyhovoval, a tak jsem hledal dále a¾ jsem narazil na styl \texttt{czplain}. Autor Radek Py¹ný ho tvoøil jako souèást své bakaláøské práce~\cite{bib_czplain}, její¾ cílem bylo vytvoøit styl, který nejvíce a nejjednodu¹eji bude splòovat normu ÈSN ISO 690. U tohohle stylu jsem nakonec skonèil.
+
+%----------------------------------------------------------------------------------------------
+
+\pagebreak
+\bibliography{proj4}
+
+\end{document}
