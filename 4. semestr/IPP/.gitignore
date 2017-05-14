@@ -1,0 +1,12 @@
+\.vscode/
+proj1/test\.xml
+*.aux
+*.gz
+*.log
+*.zip
+
+proj2/__pycache__/
+
+*.ps
+
+*.dvi

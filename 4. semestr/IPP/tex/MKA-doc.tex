@@ -1,0 +1,98 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[left=2cm, text={17cm, 24cm}, top=2.5cm]{geometry}
+\usepackage[IL2]{fontenc}
+\usepackage{times}	% Times New Roman font
+\usepackage{textcomp}
+
+\begin{document}
+
+\begin{flushleft}
+
+Dokumentace úlohy MKA: Minimalizace konečného automatu v Python 3 do IPP 2016/2017
+
+Jméno a příjmení: Jakub Frýz
+
+Login: xfryzj01
+
+\noindent\rule{\textwidth}{0.4pt}
+	
+\end{flushleft}
+
+\section*{Úvod}
+
+Následující text popisuje proces skriptu
+
+\section{Vstupní argumenty}
+
+Vstupní argumenty se zpracovávají pomocí \texttt{argparse}. Kontroluje se:
+
+\begin{itemize}
+	
+	\item je-li zadán argument \texttt{--help} a nic navíc:
+	\begin{itemize}
+		\item[\textbf{ano}] vypíše se nápověda
+		\item[\textbf{ne}] CHYBA
+	\end{itemize}
+
+	\item jsou-li zadány oba argumenty \texttt{--find-non-finishing} (\texttt{-f}) a \texttt{--minimize} (\texttt{-m}) $\rightarrow$ CHYBA
+
+	\item je-li zadán argument \texttt{--input}:
+	\begin{itemize}
+		\item[\textbf{ano}] načtou se data ze souboru
+		\item[\textbf{ne}] čte se ze standardního vstupu \texttt{stdin}
+	\end{itemize}
+
+	\item je-li zadán argument \texttt{--output}:
+	\begin{itemize}
+		\item[\textbf{ano}] data se uloží do souboru
+		\item[\textbf{ne}] data se vytisknou na standardní výstup \texttt{stdout}
+	\end{itemize}
+
+	\item je-li zadán argument \texttt{--case-insensitive} (\texttt{-i}) $\rightarrow$ po načtení souboru se celý soubor převede na malá písmena
+
+\end{itemize}
+
+\section{Zpracování vstupního souboru}
+
+Vstupní soubor zpracovávám převážně za pomoci regexů. Na začátku odstraním komentáře a všechny bílé znaky, co nejsou mezi \textquotesingle\textquotesingle. Následně pak pomocí funkce \texttt{glue()} převedu celý automat na jednořádkový \texttt{string} tzn. že zbylé bílé znaky byly převedeny na jejich \uv{ne bílou formu} (\verb|\n|, \verb|\t|, \verb|\r|). Na takto vzniklý řetězec se zavolá funkce \texttt{process()}, která za pomoci tohoto regexu
+\begin{center}
+	\verb|^\(\{(.*)\},\{(.*)\},\{(.*)\},(.*),\{(.*)\}\)$|
+\end{center}
+získá z onoho řetězce pětici, která definuje automat. Ta je následně pomocí dalších regexů rozkouskována na jednotlivé stavy, znaky, atd.. Ve výsledku funkce vrátí 4 \texttt{listy} (stavy, abeceda, pravidla, konečné stavy) a jeden \texttt{string} (počáteční stav). Těchto pět položek je po návratu z funkce uloženo do dalšího \texttt{listu} do proměnné jménem \texttt{automat}.
+
+\pagebreak
+
+Teď je v proměnné \texttt{automat} uložen konečný automat, ale nejsme si jisti, zda-li je dobře specifikovaný. Na to je funkce \texttt{specify()}, která zkontroluje, zda-li automat splňuje podmínky:
+\begin{itemize}
+	\item neobsahuje $\varepsilon$-přechody
+	\item neobsahuje nedeterminismus
+	\item neobsahuje nedostupné a neukončující stavy
+\end{itemize}
+Pokud podmínky splňuje funkce navrátí hodnotu \texttt{True}, jinak \texttt{False}. Pokud vrátí \texttt{False}, skript se ukončí s návratovou hodnotou \texttt{62}.
+
+Tímto by mělo být potvrzeno, že zadaný automat je dobře specifikovaný.
+
+Pokud byl zadán argument \texttt{--find-non-finishing} (\texttt{-f}) a nebo \texttt{--minimize} (\texttt{-m}) provedou se odpovídající funkce.
+
+Následuje už jenom výpis automatu. Ten se provede buď na standardní výstup nebo do souboru, byl-li zadán argument \texttt{--output}.
+
+\section{Nalezení neukončujícího stavu}
+
+K tomuto účelu zde slouží funkce \texttt{find\_non\_finishing()}, která není nic jiného než upravená část funkce \texttt{specify()} s jediným rozdílem, že vrací název neukončujícího stavu.
+
+\section{Minimalizace konečného automatu}
+
+POZN: minimalizaci se mi nepodařilo do konce pořádně zprovoznit.
+\\ \\
+Minimalizace automatu má vytvořit minimální možnou verzi zadaného automatu. To provede funkce \texttt{minimize()}. Vytvoří se dvě množiny stavů (ty koncové a ty ostatní). Následně se prochází cyklem přes znaky abecedy a hledají se pravidla, která vycházejí ze stavů jedné a pak i druhé množiny samostatně. Pokud všechna nalezená pravidla pro daný znak i množinu stavů končí ve stavech, která jsou všechny součástí jedné množiny, nic se neděje, pokud ovšem se stane, že některé jsou z druhé množiny, provede se štěpení a štěpí se tak dlouho, dokud se už nedá více štěpit.
+
+Pak dojde ke spojování stavů. Projdou se všechna pravidla znovu a pokud se najdou taková pravidla, která přes stejný znak vycházejí ze stavů z jedné množiny a končí v jiné či stejné, lze tyto pravidla nahradit spojenou verzí.
+
+\section*{Závěr}
+
+Tenhle projekt byl pro mne mnohem těžší než předchozí. Jedním z důvodů může příliš volný styl kódu jazyka Python3. Osobně preferuji, když jsem syntaxí jazyka trochu \uv{omezován} jako například znaky \{ a \} pro funkce, cykly, podmínky, atd.. Osobně mi tento styl přijde přehlednější. Ale zde už záleží na vkusu člověka, který ten jazyk používá. I tak jsem se mnohé přiučil, ať už z jazyka Python3, ale i tím, že jsem si mohl vyzkoušet algoritmizaci už známých procesů z předmětu IFJ.
+
+\end{document}

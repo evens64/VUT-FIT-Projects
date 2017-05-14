@@ -1,0 +1,14 @@
+global DEBUG
+global DEBUG_DUMP
+global DEBUG_ERROR
+global DEBUG_SPACE
+
+DEBUG = False
+DEBUG_DUMP = False
+DEBUG_ERROR = False
+DEBUG_SPACES = False
+
+# DEBUG = True
+# DEBUG_DUMP = True
+# DEBUG_ERROR = True
+# DEBUG_SPACES = True

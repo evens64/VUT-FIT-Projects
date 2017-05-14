@@ -1,0 +1,128 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[left=2cm, text={17cm, 24cm}, top=2.5cm]{geometry}
+\usepackage[IL2]{fontenc}
+\usepackage{times}	% Times New Roman font
+\usepackage{sectsty}
+\usepackage{multicol}
+
+\sectionfont{\large}
+
+\begin{document}
+
+\begin{flushleft}
+
+Dokumentace úlohy JSN: JSON2XML v PHP 5 do IPP 2016/2017
+
+Jméno a příjmení: Jakub Frýz
+
+Login: xfryzj01
+
+\rule{\textwidth}{0.4pt}
+
+\end{flushleft}
+
+\section*{Úvod}
+
+Jednotlivé sekce dokumentace se věnují obsahu souboru, který je v jejím názvu. Při práci na tomto projektu jsem si nedefinoval žádné objektové třídy, neboť jsem uvážil, že pro tento projekt jich není třeba.
+
+Všechny mnou definované funkce:
+
+\begin{multicols}{2}
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item\verb|print_help()|
+	\item\verb|process_arguments()|
+	\item\verb|JSON2XML()|
+	\item\verb|process_main()|
+	\item\verb|process_array()|
+	\item\verb|process_other()|
+	\item\verb|validate_name()|
+	\item\verb|simple_array_test()|
+\end{itemize}
+\end{multicols}
+
+\section*{Soubory}
+
+\section{jsn.php}
+
+Srdce celého skriptu, neobsahuje definici žádné funkce.
+Vše pracuje na globální úrovni v tomto pořadí:
+
+\begin{enumerate}
+	\setlength\itemsep{0pt}
+
+	\item Zkontroluje se, zda-li byl zadán pouze argument \verb|--help|. Pokud je zadáno více argumentů, skript se ukončí s~návratovou hodnotou \verb|1|, jinak se pomocí funkce \verb|print_help()| vypíše nápověda na standardní výstup.
+	
+	\item V případě, že byly zadány jiné argumenty než \verb|--help|, nadefinují se proměnné \verb|$config|, \verb|$jsn| a \verb|$xml|, které se budou následně používat v~některých funkcích, a naimportují se ostatní soubory obsahující funkce.
+	
+	\item Následně se zpracují zadané argumenty pomocí definované funkce \verb|process_arguments()| do proměnné \verb|$config|, proběhne-li vše jak má.
+	
+	\item Nyní jsou už argumenty zpracované, tak se naimportuje vstupní JSON. Ten se zadává pomocí argumentu\\ \verb|--output=filename| nebo ze standardního vstupu.
+	
+	\item Soubor je naimportovaný, lze ho dekódovat. K tomu se použije funkce \verb|json_decode()|. Ta navrátí zpracované pole do proměnné \verb|$jsn|, pokud vše proběhlo v pořádku, jinak \verb|NULL|. \verb|NULL| vratí i pokud zpracovávaný soubor obsahuje pouze \verb|{}| nebo \verb|[]|, což se musí též kontrolovat.
+	
+	\item Dekódovaný JSON se následně převede na XML. K tomu slouží funkce \verb|JSON2XML()|.
+	
+	\item Jediné, co zbývá je export. Ten je ovlivněn argumentem \verb|--output=filename|. Je-li zadán, vytvořené XML se uloží do souboru (zde se kontroluje i to, zda-li se soubor vůbec uložil), jinak na standardní výstup.
+	
+\end{enumerate}
+
+\section{help.php}
+
+Obsahuje pouze funkci \verb|print_help()|, jejíž úkol není nic jiného než vypsat nápovědu na standardní výstup.
+
+\section{fce.php}
+
+Obsahuje funkce \verb|validate_name()| a \verb|simple_array_test()|:
+
+\begin{description}
+	\setlength\itemsep{0pt}
+	
+	\item[\texttt{validate\_name(\$value, \$int)}] Funkce zkontroluje, zda-li předaný string \verb|$value| je validním názvem pro element XML. K validaci se využije regexu a funkcí \verb|preg_match()| a \verb|preg_replace()|.
+	
+	\item[\texttt{simple\_array\_test(array \$array)}] Funkce zkontroluje, zda-li je zadané pole \verb|$array| indexované nebo asociativní (jestli je to objekt nebo jenom pole).
+	
+\end{description}
+
+\section{arg.php}
+
+Obsahuje funkci na zpracování argumentů \verb|process_arguments($arg1)|. 
+
+Ta projde pole argumentů \verb|$argv|, zjistí zda-li obsahují hodnotu, zkontroluje jestli vůbec argument má obsahovat hodnotu, popřípadě ukončí skript s chybou. To stejné jsou-li některé argumenty zadané víckrát. 
+
+Následně ještě zkontroluje některé podmínky, které musí argumenty splňovat (např. pokud je zadán argument \verb|--start=n|, jestli je zadán i argument \verb|-t| či \verb|--index-items|) a nastaví výchozí hodnoty, pokud nebyly zadané argumentem (např. \verb|--array-name=array-element| nebo \verb|--item-name=item-element|).
+
+\section{xml.php}
+
+Obsahuje funkce \verb|JSON2XML()|, \verb|process_main()|, \verb|process_array()| a \verb|process_other()|.
+
+\begin{description}
+	\setlength\itemsep{0pt}
+
+	\item[\texttt{JSON2XML(\$int)}] V této funkci se inicializuje \verb|DOMDocument| do proměnné \verb|$xml|, obalí se kořenovým elementem, pokud byl zadán a určí se, zda-li je na nejvyšší úrovni objekt (asociativní pole) nebo pole (indexované pole). Poté se volá funkce \verb|process_main()| nebo \verb|process_array()|.
+	
+	\item[\texttt{process\_main(\$node, array \$array)}] Hlavní funkce na procházení objektu (v JSON souboru ohraničeno~\verb|{}|, v proměnné \verb|$jsn| je uloženo jako asociativní pole). Pokud obsahuje jiné pole nebo objekt, za použití rekurze se volá tato funkce nebo funkce \verb|process_array()|. Ostatní hodnoty typu \verb|literal|, \verb|string|, \verb|integer| a~\verb|real| zpracovává funkce \verb|process_other()|.
+	
+	\item[\texttt{process\_array(\$node, array \$array)}] Prochází a zpracovává indexované pole \verb|$array| (v JSON je pole označeno \verb|[]|), zohlední zadané argumenty (\verb|-l|, \verb|-s|, \verb|-i| a \verb|--types|) a vloží do XML. Pokud pole obsahuje jiné pole nebo objekt, za použití rekurze se volá tato funkce nebo funkce \verb|process_main()|.
+	
+	\item[\texttt{process\_other(\$node, \$key, \$value)}] Pomocná funkce pro \verb|process_main()|, která zpracovává hodnoty \verb|$value| typu \verb|literal|, \verb|string|, \verb|integer| a \verb|real|, zohlední zadané argumenty (\verb|-l|, \verb|-s|, \verb|-i| a \verb|--types|) a vloží do~XML společně s klíčem \verb|$key|.
+	
+\end{description}
+
+\section*{Připomínky k řešení}
+
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	
+	\item Úkolem \verb|DOMDocument| je vytvořit validní soubor XML, což znamená, že pokud hodnota obsahovala problematické znaky, byly přeloženy i přesto, že nebyl zadán argument \verb|-c|. Tento problém jsem vyřešil tím, že před výpisem souboru na upřesněný výstup jsem si uložil celý XML soubor do \verb|stringu|, zjistil si, jestli byl argument \verb|-c| zadán a~pokud nebyl, tak za~pomoci funkce \verb|html_entity_decode()| jsem problematické znaky převedl zpět na jejich problematickou verzi.
+	
+	\item Pro zkrácení zápisu jsem se snažil používat ternární operátor (\verb|podmínka ? pravda : nepravda;|).
+	
+	\item Pro validaci názvu elementu byly použity 2 regexy (první, zda-li je název validní a druhý pro nalezení nevalidních znaků)
+	
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,8 @@
+# Git will always convert line endings to LF on checkout
+makefile text eol=lf
+*.php text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+
+*.pdf binary
+*.zip binary

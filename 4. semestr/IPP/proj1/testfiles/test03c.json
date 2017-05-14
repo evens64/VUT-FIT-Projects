@@ -1,0 +1,8 @@
+{
+	"string" : "value",
+	"int" : 10,
+	"real" : 3.14,
+	"bool" : true,
+	"bool2" : false,
+	"lit" : null
+}
