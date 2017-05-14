@@ -15,16 +15,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          UAC Manifest Options
-          If you want to change the Windows User Account Control level replace the 
-          requestedExecutionLevel node with one of the following.
+          Možnosti manifestu pro nástroj Řízení uživatelských účtů
+          Pokud chcete změnit úroveň nástroje Řízení uživatelských účtů, nahraďte 
+          uzel requestedExecutionLevel jednou z následujících hodnot.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         If you want to utilize File and Registry Virtualization for backward 
-         compatibility then delete the requestedExecutionLevel node.
+         Pokud chcete využívat virtualizaci souborů a registru pro zpětnou 
+         kompatibilitu, pak uzel requestedExecutionLevel odstraňte.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FDz0obJsZb7MHp9GRaVryHj/NYwn+qewrbR4wINQQDs=</dsig:DigestValue>
+        <dsig:DigestValue>fU6hFZkGjdcEf2rtG32mvzDN3+YAu2z7eoFpArv6gCM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uyp4mBB8laqdlUXtbZGnBv9QkEWPV1FzlLiH7Q/+nWM=</dsig:DigestValue>
+        <dsig:DigestValue>uF3WgYHIDz+37z01lAJrnrcDA9mAXZJZ72cVHYjSxU8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

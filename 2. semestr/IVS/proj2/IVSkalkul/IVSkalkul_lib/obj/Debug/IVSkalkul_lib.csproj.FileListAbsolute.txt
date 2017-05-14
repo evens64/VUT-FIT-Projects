@@ -17,3 +17,8 @@ D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_
 D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.dll
 D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.pdb
 D:\Documents\School\VUT\IVS\Proj2\Pratele_syndromu_vyhoreni\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.csprojResolveAssemblyReference.cache
+C:\GitKraken\VUT FIT Projects\2. semestr\IVS\proj2\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.dll
+C:\GitKraken\VUT FIT Projects\2. semestr\IVS\proj2\IVSkalkul\IVSkalkul_lib\bin\Debug\IVSkalkul_lib.pdb
+C:\GitKraken\VUT FIT Projects\2. semestr\IVS\proj2\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.csprojResolveAssemblyReference.cache
+C:\GitKraken\VUT FIT Projects\2. semestr\IVS\proj2\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.dll
+C:\GitKraken\VUT FIT Projects\2. semestr\IVS\proj2\IVSkalkul\IVSkalkul_lib\obj\Debug\IVSkalkul_lib.pdb
