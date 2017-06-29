@@ -5,6 +5,9 @@
 
 #include <vector>
 #include <array>
+#include <map>
+#include <fstream>
+#include <string>
 #include "CardStack.h"
 
 
@@ -51,6 +54,62 @@ public:
 		MoveTypeslast = recycleMove
 	};
 
+	const std::map<Card::CardValues, std::string> value2str = {
+		{ Card::ace, "A" },
+		{ Card::two, "2" },
+		{ Card::three, "3" },
+		{ Card::four, "4" },
+		{ Card::five, "5" },
+		{ Card::six, "6" },
+		{ Card::seven, "7" },
+		{ Card::eight, "8" },
+		{ Card::nine, "9" },
+		{ Card::ten, "10" },
+		{ Card::jack, "J" },
+		{ Card::queen, "Q" },
+		{ Card::king, "K" }
+	};
+	const std::map<Card::CardSuits, char> suit2char = {
+		{ Card::diamonds, 'D' },
+		{ Card::hearts, 'H' },
+		{ Card::clubs, 'C' },
+		{ Card::spades, 'S' },
+	};
+	const std::map<CardStackGroups, char> group2char = {
+		{ deckGroup, 'D' },
+		{ drawGroup, 'W' },
+		{ pileGroup, 'P' },
+		{ foundationGroup, 'F' },
+	};
+	/*
+	const std::map<char, CardStackGroups> char2group = {
+		{ 'D', deckGroup },
+		{ 'W', drawGroup },
+		{ 'P', pileGroup },
+		{ 'F', foundationGroup },
+	};
+	*/
+	const std::map<std::string, Card::CardValues> str2value = {
+		{ "A", Card::ace },
+		{ "2", Card::two },
+		{ "3", Card::three },
+		{ "4", Card::four },
+		{ "5", Card::five },
+		{ "6", Card::six },
+		{ "7", Card::seven },
+		{ "8", Card::eight },
+		{ "9", Card::nine },
+		{ "10", Card::ten },
+		{ "J", Card::jack },
+		{ "Q", Card::queen },
+		{ "K", Card::king }
+	};
+	const std::map<char, Card::CardSuits> char2suit = {
+		{ 'D', Card::diamonds },
+		{ 'H', Card::hearts },
+		{ 'C', Card::clubs },
+		{ 'S', Card::spades },
+	};
 
 //protected:
 
@@ -77,10 +136,17 @@ public:
 	const CardStack& getStackRef(CardStackGroups group, int index) const;
 	int getScore() const;
 
+	void save(char* filename);
+	bool load(char* filename);
+
+	void clearBoard();
 };
 
 typedef std::pair<SolitaireBoard::CardStackGroups, int> StackID;
 
+/**
+* \brief class for storing information about game moves
+*/
 class SolitaireGameMove {
 public:
 	enum MoveTypes {
@@ -110,6 +176,7 @@ public:
 	int mCardAmount; /**< number of cards transferred */
 	bool mPriorVisibility;
 	bool mPriorVisibilityAltered;
+	int mScoreChange = 0;
 };
 
 #endif

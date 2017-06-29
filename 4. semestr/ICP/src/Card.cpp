@@ -14,6 +14,20 @@ Card::Card(CardValues value, CardSuits suit)
 }
 
 /**
+* \brief A constructor
+* \param[in] visible initial visibility of card
+* \param[in] value Value of the new card (1-10, john, queen, king)
+* \param[in] suit Suit of the new card(hearts, diamonds, clubs, spades)
+* \returns mValue of card
+*/
+Card::Card(bool visible, CardValues value, CardSuits suit)
+{
+	this->mValue = value;
+	this->mSuit = suit;
+	this->mVisible = visible;
+}
+
+/**
 * \brief A trivial destructor
 */
 Card::~Card()
@@ -88,11 +102,19 @@ Card::CardValues Card::getValue() const
 	return this->mValue;
 }
 
+/**
+* \brief gets suit of card
+* \return mSuit of card
+*/
 Card::CardSuits Card::getSuit() const
 {
 	return this->mSuit;
 }
 
+/**
+* \brief gets value of card
+* \return mValue of card
+*/
 Card::CardColors Card::getColor() const {
 	if (this->mSuit == diamonds || this->mSuit == hearts) return red;
 	if (this->mSuit == blindsuit) return blind;

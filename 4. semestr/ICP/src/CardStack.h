@@ -60,6 +60,8 @@ public:
 
 	std::deque<Card> mStack; /**< Deque containing cards of the card stack, top card is the first item in queue*/
 
+	void clearStack();
+
 	void fillWithShuffledDeck();
 	void addCard(const Card& crd);
 	void addCard(Card&& crd);
@@ -78,8 +80,8 @@ public:
 	std::deque<Card>::const_iterator begin() const;
 	std::deque<Card>::const_reverse_iterator rbegin() const;
 	std::deque<Card>::const_iterator end() const;
-
 	std::deque<Card>::const_reverse_iterator rend() const;
+	Card front() const;
 
 	void setVisibility(StackVisibilityRules rule);
 	void setOrder(OrderRules rule);

@@ -1,0 +1,66 @@
+<RCC>
+	<qresource prefix="/cards">
+		<file>img/card_club_2.png</file>
+		<file>img/card_club_3.png</file>
+		<file>img/card_club_4.png</file>
+		<file>img/card_club_5.png</file>
+		<file>img/card_club_6.png</file>
+		<file>img/card_club_7.png</file>
+		<file>img/card_club_8.png</file>
+		<file>img/card_club_9.png</file>
+		<file>img/card_club_10.png</file>
+		<file>img/card_club_A.png</file>
+		<file>img/card_club_J.png</file>
+		<file>img/card_club_K.png</file>
+		<file>img/card_club_Q.png</file>
+		<file>img/card_diamond_2.png</file>
+		<file>img/card_diamond_3.png</file>
+		<file>img/card_diamond_4.png</file>
+		<file>img/card_diamond_5.png</file>
+		<file>img/card_diamond_6.png</file>
+		<file>img/card_diamond_7.png</file>
+		<file>img/card_diamond_8.png</file>
+		<file>img/card_diamond_9.png</file>
+		<file>img/card_diamond_10.png</file>
+		<file>img/card_diamond_A.png</file>
+		<file>img/card_diamond_J.png</file>
+		<file>img/card_diamond_K.png</file>
+		<file>img/card_diamond_Q.png</file>
+		<file>img/card_heart_2.png</file>
+		<file>img/card_heart_3.png</file>
+		<file>img/card_heart_4.png</file>
+		<file>img/card_heart_5.png</file>
+		<file>img/card_heart_6.png</file>
+		<file>img/card_heart_7.png</file>
+		<file>img/card_heart_8.png</file>
+		<file>img/card_heart_9.png</file>
+		<file>img/card_heart_10.png</file>
+		<file>img/card_heart_A.png</file>
+		<file>img/card_heart_J.png</file>
+		<file>img/card_heart_K.png</file>
+		<file>img/card_heart_Q.png</file>
+		<file>img/card_spade_2.png</file>
+		<file>img/card_spade_3.png</file>
+		<file>img/card_spade_4.png</file>
+		<file>img/card_spade_5.png</file>
+		<file>img/card_spade_6.png</file>
+		<file>img/card_spade_7.png</file>
+		<file>img/card_spade_8.png</file>
+		<file>img/card_spade_9.png</file>
+		<file>img/card_spade_10.png</file>
+		<file>img/card_spade_A.png</file>
+		<file>img/card_spade_J.png</file>
+		<file>img/card_spade_K.png</file>
+		<file>img/card_spade_Q.png</file>
+	</qresource>
+	<qresource prefix="/piles">
+		<file>img/pile_club.png</file>
+		<file>img/pile_diamond.png</file>
+		<file>img/pile_heart.png</file>
+		<file>img/pile_spade.png</file>
+		<file>img/card_empty_stack.png</file>
+	</qresource>
+	<qresource prefix="/back">
+		<file>img/card_back.png</file>
+	</qresource>
+</RCC>

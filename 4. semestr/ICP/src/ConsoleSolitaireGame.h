@@ -5,6 +5,10 @@
 
 #include <iostream>
 #include "ConsoleSolitaireBoard.h"
+
+/**
+* \brief class representing a set of four playing boards, enriched for methods related to console input and output
+*/
 class ConsoleSolitaireGame
 {
 public:

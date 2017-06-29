@@ -1,11 +1,16 @@
 // Autoři: Michal Hrabovský (xhrabo08) & Jakub Frýz (xfryzj01)
 #include "ConsoleSolitaireGame.h"
 
+/**
+* \brief trivial constructor
+*/
 ConsoleSolitaireGame::ConsoleSolitaireGame()
 {
 }
 
-
+/**
+* \brief trivial destructor
+*/
 ConsoleSolitaireGame::~ConsoleSolitaireGame()
 {
 }
@@ -30,7 +35,9 @@ void ConsoleSolitaireGame::writeoutAllBoards() const
 	}
 }
 
-
+/**
+* \brief main loop of the console client, executes commands and calls for board status writouts
+*/
 void ConsoleSolitaireGame::mainLoop()
 {
 	std::cout << "###################################################" << std::endl;
@@ -65,13 +72,15 @@ bool ConsoleSolitaireGame::executeCommand()
 {
 	char c1, c2;
 	int util;
-	std::string str;
+	char str[100];
 	SolitaireGameMove move;
 	std::cin >> c1;
 	switch (c1) {
 		default:
 			this->writeInvalidCommand();
 			return false;
+		case 'D':
+			return true;
 		case 'H':
 			this->printHelp();
 			return false;
@@ -106,28 +115,27 @@ bool ConsoleSolitaireGame::executeCommand()
 				}
 				return true;
 			case 'H':
-				//this->mBoards[c1 - '1'].writeoutHints();
+				int hintcount;
+				std::cin >> hintcount;
+				this->mBoards[c1 - '1'].writeoutHints(hintcount);
 				return false;
 			case 'N':
-				(&(this->mBoards[c1 - '1']))->~ConsoleSolitaireBoard();
-				new (&(this->mBoards[c1 - '1'])) ConsoleSolitaireBoard();
 				this->mBoards[c1 - '1'].initialDeal();
 				this->mBoardsActive[c1 - '1'] = true;
 				//this->mBoards[c1 - '1'] = ConsoleSolitaireBoard();
 				return true;
 			case 'L':
-				std::cin >> c2;
 				std::cin >> str;
-				//this->mBoards[c1 - '1'].load(str);
+				this->mBoards[c1 - '1'].load(str);
+				this->mBoardsActive[c1 - '1'] = true;
 				return true;
 			case 'S':
 				if (this->mBoardsActive[c1 - '1'] == false) {
 					std::cout << "board is inactive, type [boardnumber]N to start a new game" << std::endl;
 					return false;
 				}
-				std::cin >> c2;
 				std::cin >> str;
-				//this->mBoards[c1 - '1'].save(str);
+				this->mBoards[c1 - '1'].save(str);
 				return true;
 			case 'P':
 				if (this->mBoardsActive[c1 - '1'] == false) {
@@ -181,7 +189,10 @@ bool ConsoleSolitaireGame::executeCommand()
 			util = -1;
 			std::cin >> util;
 			move.mCardAmount = util;
-			this->mBoards[c1 - '1'].move(move);
+			if (!this->mBoards[c1 - '1'].move(move)) {
+				std::cout << "invalid move" << std::endl;
+				return false;
+			}
 
 	}
 	return true;
@@ -193,14 +204,15 @@ bool ConsoleSolitaireGame::executeCommand()
 void ConsoleSolitaireGame::printHelp() {
 	std::cout << "HELP:" << std::endl;
 	std::cout << "'H' for help" << std::endl;
+	std::cout << "'D' to redraw boards";
 	std::cout << "[gameid][letter] for various actions" << std::endl;
 	std::cout << "\t- gameid 1-4 for ID of game" << std::endl;
 	std::cout << "\t'D' for card draw" << std::endl;
 	std::cout << "\t'R' for recycle drawn" << std::endl;
 	std::cout << "\t'U' for undo last move" << std::endl;
-	std::cout << "\t'H [count]' for hints (not implemented)" << std::endl;
-	std::cout << "\t'L [filename]' for load game (not implemented)" << std::endl;
-	std::cout << "\t'S [filename]' for save game (not implemented)" << std::endl;
+	std::cout << "\t'H [count]' for hints" << std::endl;
+	std::cout << "\t'L [filename]' for loading game from file (filename max 100 letters)" << std::endl;
+	std::cout << "\t'S [filename]' for saving game to file (filename max 100 letters)" << std::endl;
 	std::cout << "\t'N' for new game" << std::endl << std::endl;
 	std::cout << "'[gameid][letterfrom][idfrom][letterto][idto] [count]' for moving cards" << std::endl;
 	std::cout << "\t- gameid 1-4 for ID of game" << std::endl;

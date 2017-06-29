@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewGameDialog</class>
+ <widget class="QDialog" name="NewGameDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>256</width>
+    <height>256</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Hry</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>02: neaktivní</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>03: neaktivní</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>04: neaktivní</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButton_1">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>01: neaktivní</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>pushButton_1</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_3</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>NewGameDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>NewGameDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>246</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>NewGameDialog</receiver>
+   <slot>sl_buttonName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>NewGameDialog</receiver>
+   <slot>sl_buttonName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>183</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>NewGameDialog</receiver>
+   <slot>sl_buttonName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>NewGameDialog</receiver>
+   <slot>sl_buttonName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>183</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sl_buttonName()</slot>
+ </slots>
+</ui>

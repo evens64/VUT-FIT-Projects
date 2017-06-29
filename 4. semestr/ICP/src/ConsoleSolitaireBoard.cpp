@@ -91,6 +91,28 @@ void ConsoleSolitaireBoard::writeoutStack(const CardStackGroups group, const int
 		return;
 	}
 }
+/**
+* \brief Writes out Hints for the game
+* \param[in] limit maximum number of hints to write out
+*/
+void ConsoleSolitaireBoard::writeoutHints(int limit) const
+{
+	auto hints = this->getHints(limit);
+	if (hints.size() > 0) {
+		for (auto iter = hints.begin(); iter != hints.end(); ++iter) {
+			switch ((*iter).mMoveType) {
+			case SolitaireGameMove::move:
+				std::cout << "move " << (*iter).mCardAmount << " card(s) from " << group2char.at((*iter).mSourceGroup) << (*iter).mSourceIndex << " to " << group2char.at((*iter).mTargetGroup) << (*iter).mTargetIndex << std::endl;
+				break;
+			case SolitaireGameMove::draw:
+				std::cout << "draw a card" << std::endl;
+				break;
+			case SolitaireGameMove::recycle:
+				std::cout << "recycle waste (possibly out of moves)" << std::endl;
+			}
+		}
+	}
+	else std::cout << "no possible moves left" << std::endl;
 
-
+}
 

@@ -30,6 +30,10 @@ CardStack::~CardStack()
 {
 }
 
+void CardStack::clearStack() {
+	this->mStack.clear();
+}
+
 /**
 * \brief Fills stack with shuffled Deck
 *
@@ -37,12 +41,12 @@ CardStack::~CardStack()
 */
 void CardStack::fillWithShuffledDeck()
 {
-	for (int i = 1; i < 4; i++) {				// CardSuits
+	for (int i = 0; i < 4; i++) {				// CardSuits
 		for (int j = 1; j <= Card::CardValues::last; j++) {			// CardValue
 			this->addCard(Card(static_cast <Card::CardValues>(j), static_cast<Card::CardSuits>(i)));
 		}
 	}
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 	std::random_shuffle(this->mStack.begin(), this->mStack.end());
 }
 
@@ -348,6 +352,9 @@ std::deque<Card>::const_reverse_iterator CardStack::rend() const
 	return this->mStack.rend();
 }
 
+Card CardStack::front() const{
+	return this->mStack.front();
+}
 /**
 * \brief Setter for visibility rule of cardstack
 * \param[in] rule Visibility rule to set
@@ -425,13 +432,21 @@ CardStack::CardSuitRules CardStack::getSuitRule() const
 */
 int CardStack::getSize() const
 {
-	return this->mStack.size();
+	return (int)this->mStack.size();
 }
-
+/**
+* \brief Sets visibility of chosen card
+* \param[in] visibility Value to set
+* \param[in] index Index of card to modify
+*/
 void CardStack::setCardVisibility(bool visibility, int index) {
 	this->mStack[index].setVisible(visibility);
 }
 
+/**
+* \brief returns true if stack is empty
+* \return emptiness of stack
+*/
 bool CardStack::isEmpty() {
 	return this->mStack.size() == 0;
 }

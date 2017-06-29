@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>512</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHra">
+    <property name="title">
+     <string>Hra</string>
+    </property>
+    <addaction name="actionNova_hra"/>
+    <addaction name="separator"/>
+    <addaction name="actionKonec"/>
+   </widget>
+   <widget class="QMenu" name="menuNapoveda">
+    <property name="title">
+     <string>Nápověda</string>
+    </property>
+    <addaction name="actionO_hre"/>
+   </widget>
+   <addaction name="menuHra"/>
+   <addaction name="menuNapoveda"/>
+  </widget>
+  <action name="actionNova_hra">
+   <property name="text">
+    <string>Nová &amp;hra</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionNacist_hru">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Načíst hru</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionKonec">
+   <property name="text">
+    <string>Konec</string>
+   </property>
+   <property name="iconText">
+    <string>&amp;Konec</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionO_hre">
+   <property name="text">
+    <string>O hře</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionKonec</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNova_hra</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sl_newGame()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionO_hre</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sl_displayAbout()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sl_displayAbout()</slot>
+  <slot>sl_newGame()</slot>
+ </slots>
+</ui>
