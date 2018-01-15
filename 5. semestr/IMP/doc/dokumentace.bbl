@@ -1,0 +1,17 @@
+\makeatletter
+\@ifundefined{url}{\def\url#1{{\tt
+  $<$#1$>$}}}{\DeclareUrlCommand\url{\def\UrlLeft{<} \def\UrlRight{>}
+  \urlstyle{tt}}}
+\makeatother
+\begin{thebibliography}{1}
+
+\bibitem{usborg}
+{\em Universal Serial Bus}.
+\newblock Dostupn{\'{e}} na:  $<${\tt http://www.usb.org}$>$.
+
+\bibitem{usbnut}
+{\em USB in a NutShell}.
+\newblock Dostupn{\'{e}} na:  $<${\tt
+  http://www.beyondlogic.org/usbnutshell}$>$.
+
+\end{thebibliography}
