@@ -1,0 +1,280 @@
+% !TeX encoding = UTF-8
+\documentclass[a4paper, 11pt]{article}
+
+% packages
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm, text={17cm, 24cm}, top=3cm]{geometry}
+\usepackage[IL2]{fontenc}
+\usepackage{bookman}
+\usepackage[numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+
+\bibliographystyle{bib/czplain}
+
+\renewcommand{\bibsection}{\section{\bibname}}
+
+\newcommand{\tab}[1][1cm]{\hspace*{#1}}
+
+\newenvironment{envtt}{\ttfamily}{\par}
+
+
+%titulní strana, obsah, logické strukturování textu, výcuc relevantních informací z nastudované literatury, popis zajímavějších pasáží implementace, sekce o testování, bibliografie, popisy k řešení bonusových zadání
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+\textsc{{\Huge Vysoké učení technické v~Brně}\\\medskip{\huge Fakulta informačních technologií}}
+
+\vspace{\stretch{0.382}}
+
+{\LARGE Síťové aplikace a správa sítí}\\\smallskip{\Huge Programování síťové služby \\\smallskip LDAP server}
+
+\vspace{\stretch{0.618}}
+
+{\Large \today \hfill Jakub Frýz}
+
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\pagebreak
+
+\section{Úvod}
+
+\subsection{Zadání}
+
+Úkolem bylo vytvořit jednoduchý LDAP server, který bude načítat dotazy od LDAP klientů a vyhledávat odpovědi v lokální textové databázi.
+
+Server nemusí podporovat češtinu či jiné národní znaky. Server nevyžaduje autentizaci, stačí podpora LDAPv2, který řeší pouze vyhledávání. Ostatní zprávy server ignoruje, popřípadě odpoví, že danému příkazu nerozumí.
+
+Pracovní databáze serveru má formát textového souboru CSV (comma separated values se středníkem jako oddělovačem), který obsahuje tři položky - Jméno (\texttt{cn}, \texttt{CommonName}), Login (\texttt{uid}, \texttt{UserID}), Email (\texttt{mail}).
+
+Co se týče TLV filter, tak nad pracovní databází připadá v úvahu podpora \texttt{and}, \texttt{or}, \texttt{not}, \texttt{equalityMatch} a \texttt{substrings}.\footnote{Pozn.: zadání bylo převzato a upraveno z WIS}
+
+\pagebreak
+
+
+\section{Popis}
+
+V následujících podkapitolách se budu snažit přiblížit stručně protokol LDAP.
+
+\subsection{Protokol LDAP}
+
+\textbf{LDAP} (\textit{Lightweight Directory Access Protocol}) je internetový protokol pro přístup k adresářovým službám. Je odlehčenou verzí předchozího protokolu \texttt{X.500}.
+
+Systém LDAP je definován množinou čtyř modelů: Informační, jmenný, funkční a bezpečnostní model. 
+
+\begin{itemize}
+	\item \textbf{Informační model}
+	\begin{itemize}
+		\item popisuje uložení informací v adresáři
+		\begin{itemize}
+			\item záznamy = souhrn atributů (dvojice název-hodnota)
+		\end{itemize}
+		\item definuje typy dat a operace nad nimi (porovnání,\dots)
+	\end{itemize}
+
+	\item \textbf{Jmenný model}
+	\begin{itemize}
+		\item popisuje strukturu adresáře
+		\item tvoří stromovou strukturu DIT (Directory Information Tree)
+	\end{itemize}
+	
+	\item \textbf{Funkční model}
+	\begin{itemize}
+		\item zabývá se přístupem k datům a operacemi nad nimi (vyhledávání,\dots)
+	\end{itemize}
+
+	\item \textbf{Bezpečnostní model}
+	\begin{itemize}
+		\item zabývá se zabezpečením dat
+		\item definuje práva pro vkládání a modifikaci dat adresáře
+		\item stará se o autentizaci uživatele (SASL)
+	\end{itemize}
+
+\end{itemize}
+
+Protokol LDAP se používá například pro vyhledávání e-mailové adresy u poštovního klienta nebo pro autentizaci uživatele.
+
+\pagebreak
+
+
+\subsection{Standard ASN.1}
+
+\textbf{ASN.1} (\textit{Abstract Syntax Notation One}) je prostředek pro popis datových struktur pro reprezentaci, kódování, přenos, ukládání a dekódování dat v telekomunikacích, počítačových sítích a informatice. Poskytuje soubor pravidel umožňujících popsat strukturu objektů způsobem nezávislým na konkrétním hardwarovém řešení. \cite{wiki_asn1}
+
+\begin{center}
+\begin{minipage}{.7\textwidth}
+\begin{flushleft}
+\begin{envtt}
+	LDAPMessage ::= SEQUENCE \{	\\
+\tab	messageID       MessageID, \\
+\tab	protocolOp      CHOICE \{ \\
+\begin{tabbing}
+	\tab\tab xxxxxxxxxxxxxxxx\quad	\= xxxxxxxxxxxxxxxx			\kill
+	\tab\tab bindRequest    \> BindRequest, \\
+	\tab\tab bindResponse   \> BindResponse, \\
+	\tab\tab unbindRequest  \> UnbindRequest, \\
+	\tab\tab searchRequest  \> SearchRequest, \\
+	\tab\tab searchResEntry \> SearchResultEntry, \\
+	\tab\tab searchResDone  \> SearchResultDone, \\
+	\tab\tab searchResRef   \> SearchResultReference, \\
+	\tab\tab modifyRequest  \> ModifyRequest, \\
+	\tab\tab modifyResponse \> ModifyResponse, \\
+	\tab\tab addRequest     \> AddRequest, \\
+	\tab\tab addResponse    \> AddResponse, \\
+	\tab\tab delRequest     \> DelRequest, \\
+	\tab\tab delResponse    \> DelResponse, \\
+	\tab\tab modDNRequest   \> ModifyDNRequest, \\
+	\tab\tab modDNResponse  \> ModifyDNResponse, \\
+	\tab\tab compareRequest \> CompareRequest, \\
+	\tab\tab compareResponse\> CompareResponse, \\
+	\tab\tab abandonRequest \> AbandonRequest, \\
+	\tab\tab extendedReq    \> ExtendedRequest, \\
+	\tab\tab extendedResp   \> ExtendedResponse \},
+\end{tabbing}
+\tab		controls       [0] Controls OPTIONAL \}
+\end{envtt}
+\end{flushleft}
+\end{minipage}
+\end{center}
+\bigskip
+
+Výše je ukázka z LDAP ASN.1 gramatiky \cite{rfc_2251}.
+
+\pagebreak
+
+
+\subsection{Kódování BER}
+
+\textbf{BER} (\textit{Basic Encoding Rules}) se používá pro kodóvání \texttt{ASN.1}. BER patří k TLV formátům (TLV = type-length-value = typ-délka-hodnota).
+\bigskip
+
+Pole \texttt{type} určuje význam hodnoty. Má následující strukturu:
+	
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		8            & 7            & 6   & 5    & 4    & 3    & 2    & 1   \\ \hline
+		\multicolumn{2}{|c|}{Třída} & P/C & \multicolumn{5}{c|}{Číslo tagu} \\ \hline
+	\end{tabular}
+\end{table}
+
+Třída určuje, kde je typ nadefinován (typy třídy \texttt{00} jsou nadefinované přímo standardem ASN.1). P/C rozlišuje, zda-li je hodnota jednoduchá nebo složená (obsahuje jiné položky). A zbytek je číslo tagu, který určuje konkrétní tag (2 = \texttt{integer}, 10 = \texttt{enumerated}, 16 = \texttt{sequence}).
+\bigskip
+
+
+Např.: Sekvence oktetů \texttt{02 01 01} znamená: integer délky 1 a hodnoty 1
+
+
+\pagebreak
+
+
+\section{Implementace}
+
+Aplikace byla napsána v jazyce C++. Část komunikace byla vytvořena pomocí projektu z minulého roku z IPK.
+
+Při tvorbě mi hodně pomohla stránka \href{http://en.cppreference.com/w/}{cppreference.com}.
+
+
+\subsection{Signál SIGINT}
+
+Pomocí \texttt{sigaction} odchytávám \texttt{SIGINT} signál. Ten teď namísto toho, aby natvrdo ukončí aplikaci, ukončí smyčku pro nová připojení, ukončí sokety a uzavře soubor.
+
+\subsection{Komunikace}
+
+K vytvoření komunikace používám funkce \texttt{socket()}, \texttt{bind()}, \texttt{listen()} a \texttt{accept()} v tomto pořadí. Funkce \texttt{accept()} slouží k připojení klienta, a proto je použita cyklu.
+
+\subsection{Neblokující soket}
+
+Tohoto jsem dosáhl pomocí funkce \texttt{select()}, kterou jsem použil i minulý rok v projektu do IPK.
+
+Jedinou nevýhodou mého řešení je zvýšená zátěž na procesor.
+
+\subsection{Procesy}
+
+Po připojení klienta k serveru se pomocí fce \texttt{fork()} vytvoří tzv. 'dětský proces', který zdědí informace z paměťového prostoru 'rodičovského procesu' a následně si vytvoří svůj vlastní paměťový prostor. Díky tomu neinterferuje s jinými procesy a přesto přístup k databázi.
+
+\subsection{LDAP zprávy}
+
+Následně se musí dekódovat požadavky z klienta. 
+
+Moje funkce se pouze podívá na určitá místa požadavku a přečte si jejich hodnotu (přesněji řečeno dvě místa -- identifikátor zprávy a typ zprávy).
+Následuje zakódování odpovědi. Celou zprávu mám natvrdo zadanou, jen do ní zapíšu identifikátor zprávy.
+Toto platí pro požadavky typu \texttt{BindRequest} a \texttt{UnbindRequest} a odpovědi typu \texttt{BindResponse} a \texttt{SearchResultDone}.
+
+Pro požadavky typu \texttt{SearchRequest} mám vytvořen stavový automat, který vyčte všechny potřebné informace z různě dlouhých zpráv.
+
+A pro odpovědi typu \texttt{SearchResultEntry} mám funkce pro vytvoření celé zprávy podle toho, co bylo nalezeno v databázi.
+
+\subsection{Vyhledávání v DB}
+
+Databáze ve formátu CSV se načítá do proměnné typu \texttt{ifstream}. Tento typ je pouze pro čtení.
+
+Databázi procházím po jednom od začátku. Využívám k tomu funkci \texttt{getline()} pro načtění řádku databáze a funkci \texttt{strtok()} pro rozdělení atributů podle znaků ';'.
+
+Pokud byl \texttt{SearchRequest} typu \texttt{equalityMatch}, používám fce \texttt{strcmp}, a pro \texttt{SearchRequest} typu \texttt{substrings} používám metodu \texttt{find()}, kterou má typ \texttt{string}.
+
+
+\pagebreak
+
+
+\section{Testování}
+
+Testování převážně probíhalo na virtuálním stroji na mém počítači. Na tomto virtuálním stroji jsem měl nainstalovaný OS Kubuntu 17.10.
+
+Pro účely testování jsem si vytvořil vlastní databázi ve formátu CSV, která je stejná jako ukázková ve WIS, ale neobsahuje diakritická znaménka. Tato databáze je přibalena v odevzdaném archívu pod názvem \texttt{db.csv}. Symbol '@' jsem v e-mailových adresách ponechal, protože se mi na virtuálním stroji zobrazují správně, ale na serveru \texttt{eva} se mi e-mailové adresy zobrazují jako shluk symbolů. Za to může pravděpodobně jiné kódování řetězce ze strany klienta.
+\bigskip
+
+Značná část pomocných výstupu použitých k testování byla z odevzdané verze vymazána.
+
+\begin{table}[h]
+	\centering
+	\label{mypc}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{CPU}       & Intel i5-6600K 3.3GHz                        \\ \hline
+		\textbf{GPU}       & MSI R9 390X GAMING 8G 8GB                    \\ \hline
+		\textbf{RAM}       & Kingston HyperX Fury Black 16GB DDR4 2133MHz \\ \hline
+		\textbf{DISK \#01} & Samsuing SD 850 EVO 250GB                    \\ \hline
+		\textbf{DISK \#02} & WD Green EZRX 2TB (5400rpm)                  \\ \hline
+		\textbf{DISK \#03} & Samsuing SD 850 EVO 500GB                    \\ \hline
+		\textbf{OS}        & Windows 10 Education 1703                    \\ \hline
+	\end{tabular}
+	\caption{HW konfigurace testovacího PC}
+\end{table}
+
+Virtuální stroj běžel na disku č. 3.
+\bigskip
+
+Testování proběhlo úspěšně i na serveru \texttt{merlin}, ke kterému jsem se připojoval ze serveru \texttt{eva}.
+
+\pagebreak
+
+
+\section{Omezení}
+
+\begin{itemize}
+	\item filtry \texttt{and} a \texttt{or} nejsou podporovány
+
+	\item při \texttt{SearchResultEntry} nejsou ošetřeny některé chyby (aplikace v tom případě odešle klientu \texttt{SearchResultDone} s návratovou hodnotou \texttt{0} a žádný \texttt{SearchResultEntry})
+	
+	\item ignoruje otázky na název objektu
+	
+	\item pokud je TLV filtr \texttt{SearchRequestu} typu \texttt{present}, server vypíše prvních \texttt{SIZE\_LIMIT} záznamů (u mne to funguje, na \texttt{evě} klient vrátí chybu)
+\end{itemize}
+
+
+
+\pagebreak
+
+
+\nocite{*}
+\bibliography{dokumentace}
+
+\end{document}

@@ -1,0 +1,15 @@
+# files
+myldap
+xfryzj01\.zip
+doc/*.aux
+doc/*.blg
+doc/*.bbl
+doc/*.log
+doc/*.out
+doc/*.synctex.gz
+doc/*.toc
+
+
+# folders
+\.vscode/
+obj/
