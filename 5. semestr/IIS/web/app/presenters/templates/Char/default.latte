@@ -1,0 +1,63 @@
+{block content}
+
+<div class="container text-light">
+{foreach $char as $row}
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-2 text-center">{$row['jmeno']}</h1>
+		</div>
+	</div>
+	<div class="card" style="margin-bottom: 10px;">
+		<div class="card-body DD-bg-dark">
+
+			<h4 class="card-title">{$row['jmeno']} <span class="badge badge-pill badge-primary">lvl: {$row['stat_uroven']}</span></h4>
+
+			<h6 class="card-subtitle mb-2 text-muted"> [{$row['pohlavi']}] {$row['rasa']}, {$row['povolani']}</h6>
+
+			<p class="card-text">
+				<div class="progress" style="margin-bottom: 2px;">
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {floor($row['stat_XP'] / ($row['stat_uroven'] * 10))}%" aria-valuenow="{floor($row['stat_XP'] / ($row['stat_uroven'] * 10))}" aria-valuemin="0" aria-valuemax="100">XP</div>
+				</div>
+				<div class="progress" style="margin-bottom: 2px;">
+					<div class="progress-bar bg-danger" role="progressbar" style="width: {floor($row['stat_HP'] / $row['stat_uroven'])}%" aria-valuenow="{floor($row['stat_HP'] / $row['stat_uroven'])}" aria-valuemin="0" aria-valuemax="100">HP</div>
+				</div>
+				<div class="progress" style="margin-bottom: 2px;">
+					<div class="progress-bar bg-primary" role="progressbar" style="width: {floor($row['stat_MN'] / $row['stat_uroven'])}%" aria-valuenow="{floor($row['stat_MN'] / $row['stat_uroven'])}" aria-valuemin="0" aria-valuemax="100">MN</div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {floor($row['stat_SP'] / $row['stat_uroven'])}%" aria-valuenow="{floor($row['stat_SP'] / $row['stat_uroven'])}" aria-valuemin="0" aria-valuemax="100">SP</div>
+				</div>				
+			</p>
+
+{/foreach}
+
+			<h4 class="card-title">Inventář</h4>
+			<table class="table">
+  			<thead>
+   			 <tr>
+    				  <th>Místo sezení</th>
+    				  <th>Čas sezení</th>
+    				  <th>Název předmětu</th>
+    				  <th>Popis</th>
+    				  <th>Kvalita</th>
+    				  <th>Typ předmětu</th>
+  				  </tr>
+ 			</thead>
+  			<tbody>
+			{foreach $inventory as $row}
+  				  <tr>
+    				  <td>{$row['kde']}</td>
+    				  <td>{date_format($row['kdy'],"d.m.Y H:i")}</td>
+    				  <td>{$row['nazev']}</td>
+    				  <td>{$row['popis']}</td>
+    				  <td>{$row['kvalita']}</td>
+    				  <td>{if $row['priznak']=="W"}Zbraň{elseif $row['priznak']=="C"}Poživatelný{else}Zbroj{/if}</td>
+   			 </tr>	
+			{/foreach}
+			</tbody>
+			</table>	
+			<a style="float:right" n:href="User:Default" class="btn btn-outline-light DD-bg-light">Zpět</a>
+		</div>
+	</div>
+
+</div>

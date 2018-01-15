@@ -1,0 +1,111 @@
+{block content}
+
+<div class="container text-light">
+	<div class="row justify-content-center" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Nastavení profilu</h1>
+		</div>
+	</div>
+
+
+
+	<div class="row-md text-center">Změna přezdívky</div>
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			{form changeNicknameForm}
+			<div class="input-group">
+				<input name="prezdivka" type="text" class="form-control" placeholder="Nová přezdívka" aria-label="Nová přezdívka">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-outline-light DD-bg-dark" type="button">Změnit</button>
+					<!-- Změní přezdívku uživatele -->
+				</span>
+			</div>
+			{/form}
+		</div>
+	</div>
+
+	
+	<div class="row-md text-center">Změna jména</div>
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			{form changeNameForm}
+			<div class="input-group" style="margin-bottom: 5px;">
+				<!-- Pokud je jméno i příjmení v DB budou zapsány v inputech -->
+				<input name="krestni_jmeno" type="text" class="form-control" placeholder="Křestní jméno" aria-label="Křestní jméno" value="{$user->identity->krestni_jmeno}">
+				<input name="prijmeni" type="text" class="form-control" placeholder="Příjmení" aria-label="Příjmení" value="{$user->identity->prijmeni}">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-outline-light DD-bg-dark" type="button">Změnit</button>
+				</span>
+			</div>
+			{/form}
+			{form deleteNameForm}
+			<button type="submit" class="btn btn-outline-light btn-block DD-bg-dark">Smazat jméno</button>
+			{/form}
+		</div>
+	</div>
+
+
+	<div class="row-md text-center">Změna e-mailu</div>
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			{form changeEmailForm}
+			<div class="input-group">
+				<input name="email" type="mail" class="form-control" placeholder="Nový e-mail" aria-label="Nový e-mail">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-outline-light DD-bg-dark" type="button">Změnit</button>
+					<!-- Změní e-mail uživatele -->
+				</span>
+			</div>
+			{/form}
+		</div>
+	</div>
+
+
+
+	<div class="row-md text-center">Změna hesla</div>
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			{form changePasswordForm}
+			<div class="input-group">
+				<input name="heslo" type="password" class="form-control" placeholder="Nové heslo" aria-label="Nové heslo">
+				<input name="heslo2" type="password" class="form-control" placeholder="Nové heslo znovu" aria-label="Nové heslo znovu">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-outline-light DD-bg-dark" type="button">Změnit</button>
+					<!-- Změní heslo uživatele -->
+				</span>
+			</div>
+			{/form}
+		</div>
+	</div>
+
+
+
+
+	<div class="row-md text-center">Povýšení na Pána Jeskyně</div>
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<!--  --> 
+			<!-- Do tabulky 'zadosti' vloží žádost o povýšení na PJ (do INSERT stačí zadat pouze ID_hrace, ostatní je vychozí) -->
+			{if !(isset($zadost['priznak']))}
+			<!-- NEPOSLAL ŽÁDOST -->
+				{form sendDMRequestForm}
+					<button type="submit" class="btn btn-outline-light btn-lg btn-block DD-bg-dark">Ano, chci se stát Pánem Jeskyně</button>
+				{/form}
+			<!-- POSLAL ŽÁDOST -->
+			{elseif ($zadost['priznak'] == 0)}
+			<!-- 'priznak' je 0 -->
+			<button type="button" class="btn btn-outline-light btn-lg btn-block DD-bg-dark" disabled>Admin tvoji žádost ještě neschválil</button>
+			{elseif ($zadost['priznak'] == 1)}
+			<!-- 'priznak' je 1, uživatel je PJ -->
+			<button type="button" class="btn btn-outline-light btn-lg btn-block DD-bg-dark" disabled>Už jsi Pánem jeskyně</button>
+			{elseif ($zadost['priznak'] == 2)}
+			<!-- 'priznak' je 2, a 'datum_vytvoreni' je méně než 2 měsíce staré (bude se snižovat v tlačítku) -->
+			<button type="button" class="btn btn-outline-light btn-lg btn-block DD-bg-dark" disabled>Žádost byla zamítnuta (znovu můžeš za x dnů)</button>
+			{/if}
+		</div>
+	</div>
+
+
+
+
+</div>

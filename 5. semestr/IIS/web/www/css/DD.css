@@ -1,0 +1,36 @@
+/* CSSv3 */
+
+.DD-bg-dark {
+	background-color: #2d0000 !important;
+}
+
+.DD-nav-dark {
+	border: 1px solid white;
+	background-color: #2d0000 !important;
+}
+
+.DD-ddi-dark:active {
+	background-color: #2d0000 !important;
+}
+
+.DD-bg-light {
+	background-color: #4d0000 !important;
+}
+
+.DD-tx-white {
+	color: white;
+}
+
+.DD-tx-white:hover {
+	color: white;
+}
+
+.DD-row-0 {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.DD-row-15 {
+	margin-left: -15px;
+	margin-right: -15px;
+}

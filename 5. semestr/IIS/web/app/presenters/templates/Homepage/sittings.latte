@@ -1,0 +1,65 @@
+{block content}
+
+<div class="container">
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div style="color:white" class="col-md-6">
+
+			<h1 class="display-2 text-center text-light">{$user->identity->prezdivka}</h1>
+
+			{* Jméno hráče *}
+			{if ($this->getParameter('user')->identity->krestni_jmeno != NULL || $this->getParameter('user')->identity->prijmeni != NULL)}
+				<div class="row justify-content-center DD-row">{$this->getParameter('user')->identity->krestni_jmeno} {$this->getParameter('user')->identity->prijmeni}</div>
+			{/if}
+
+			{* Pán Jeskyně, Admin *}
+			{if ($this->getParameter('user')->identity->admin == 1 && $this->getParameter('user')->identity->pan_jeskyne == 1)}
+				<div class="row justify-content-center DD-row">Admin, Pán Jeskyně</div>
+			{elseif ($this->getParameter('user')->identity->admin == 1)}
+				<div class="row justify-content-center DD-row">Admin</div>
+			{elseif ($this->getParameter('user')->identity->pan_jeskyne == 1)}
+				<div class="row justify-content-center DD-row">Pán Jeskyně</div>
+			{/if}
+
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light" n:href="User:Default">Postavy</a>
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Homepage:Sittings">Přihlásit se na sezení</a>
+	</nav>
+	
+	{foreach $sezeni as $row}
+	<div class="card" style="margin-bottom: 10px;">
+	{form prihlasitPostavuForm}
+		<div class="card-body DD-bg-dark">
+				<h6 style="color:white" class="card-title">{$row['kde']} | {$row['kdy']} </h6>
+		</div> {* card-body *}
+		<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+			<div class="row DD-row-0">
+					<input name="ID_sezeni" type="hidden" value="{$row[ID_sezeni]}">
+					<div class="col-md-6">
+						<div class="input-group">
+							<select name="ID_postavy" class="form-control" id="inputRace">
+								<option selected disabled hidden>Vyber postavu</option>
+								{foreach $moje_postavy as $postava}
+								<option value="{$postava['ID_postavy']}">{$postava['jmeno']} | {$postava['rasa']} | {$postava['povolani']}</option>
+								{/foreach}
+							</select>
+							<span class="input-group-btn">
+								<button class="btn btn-outline-light DD-bg-light" type="submit">Přihlásit postavu</button>
+							</span>
+						</div>
+					</div>
+
+				</div> {* row *}
+				
+							
+
+		</div> {* card-footer *}
+		{/form}
+	</div> {* card *}
+
+	{/foreach}
+
+</div>

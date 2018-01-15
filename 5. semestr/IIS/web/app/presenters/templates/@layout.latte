@@ -1,0 +1,38 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+	{block head} {/block}
+	<meta charset="utf-8">
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Dračí doupě</title>
+
+	<link rel="stylesheet" href="{$basePath}/css/style.css">
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap.css">
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap-responsive.css">
+
+	<link rel="stylesheet" href="{$basePath}/css/DD.css">
+	<link rel="stylesheet" href="{$basePath}/css/navbar-top-fixed.css">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+
+<body style="background-color: #4d0000;">
+	
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	{include 'components/navbar.latte'}
+	{include content}
+
+	{block scripts}
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	<script src="{$basePath}/js/bootstrap.js"></script>
+	{/block}
+</body>
+</html>

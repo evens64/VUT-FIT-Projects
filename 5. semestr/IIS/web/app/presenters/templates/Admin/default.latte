@@ -1,0 +1,51 @@
+{block content}
+
+<div class="container text-light">
+
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Administrace</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Admin:Default">Žádosti</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Users">Uživatelé</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Characters">Postavy</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Sittings">Sezení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Items">Předměty</a>
+	</nav>
+
+	
+
+
+	<div class="card-columns">
+	{foreach $zadosti as $zadost}
+
+	<div class="card text-center" style="margin-bottom: 10px;">
+		<div class="card-body DD-bg-dark" style="border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;">
+
+			{* Přezdívka hráče *}
+			<h4 class="card-title">{$zadost['prezdivka']}</h4>
+
+			{* Jméno hráče *}
+			{if ($zadost['krestni_jmeno'] != NULL || $zadost['prijmeni'] != NULL)}
+			<h6 class="card-subtitle mb-2 text-muted">{$zadost['krestni_jmeno']} {$zadost['prijmeni']}</h6>
+			{/if}
+
+		</div>
+		<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+			<a n:href="Admin:SchvalitZadost $zadost['ID_zadosti'], $zadost['ID_hrace']" class="btn btn-outline-light DD-bg-light">Schválit</a> |
+			<a n:href="Admin:ZamitnoutZadost $zadost['ID_zadosti']" class="btn btn-outline-light DD-bg-light">Zamítnout</a>
+			{*<a href="#" class="btn btn-outline-light DD-bg-light">Schválit</a> |
+			<a href="#" class="btn btn-outline-light DD-bg-light">Zamítnout</a>*}
+		</div>
+	</div>
+
+	{/foreach}
+	</div>
+
+</div>

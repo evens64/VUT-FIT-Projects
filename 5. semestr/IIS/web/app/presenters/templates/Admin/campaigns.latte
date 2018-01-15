@@ -1,0 +1,81 @@
+{block content}
+
+<div class="container text-light">
+
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Administrace</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light" n:href="Admin:Default">Žádosti</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Users">Uživatelé</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Characters">Postavy</a>
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Admin:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Sittings">Sezení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Items">Předměty</a>
+	</nav>
+
+	{* content *}
+	{foreach $tazeni as $row}
+	<div class="card" style="margin-bottom: 10px;">
+	
+		{form changeCampaignForm}
+		<div class="card-body DD-bg-dark">
+			<input name="ID_tazeni" type="hidden" value="{$row['ID_tazeni']}" >
+				
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputObjective" class="text-light">Cíl tažení</label>
+					<input name="cil" type="text" id="inputObjective" class="form-control" placeholder="Cíl tažení" maxlength="50" value="{$row['cil']}" required>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputMap" class="text-light">Mapa</label>
+					<input name="mapa" type="text" id="inputMap" class="form-control" placeholder="Mapa" maxlength="25" value="{$row['mapa']}" required>
+				</div>
+
+			</div>
+
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputDate" class="text-light">Datum vytvoření</label>
+					<input name="datum_vytvoreni" type="date" id="inputDate" class="form-control" value="{$row['datum_vytvoreni']}" >
+				</div>
+
+				<div class="form-group col">
+					<label for="inputFlag" class="text-light">Příznak</label>
+					<select name="priznak" class="form-control" id="inputFlag">
+						<option value="0" {if ($row['priznak'] == '0')}selected{/if}>neukončené</option>
+						<option value="1" {if ($row['priznak'] == '1')}selected{/if}>ukončené</option>
+					</select>
+				</div>
+
+			</div>
+
+		</div> {* card-body *}
+		<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+			<div class="row justify-content-end DD-row-0">
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<button type="submit" class="btn btn-outline-light DD-bg-light">Uložit změny</button>
+					<a n:href="Admin:SmazatTazeni $row['ID_tazeni']" class="btn btn-outline-light DD-bg-light">Smazat tažení</a>
+				</div>
+			</div> {* row *}
+
+		</div> {* card-footer *}
+		{/form}
+	</div> {* card *}
+	{/foreach}
+
+</div>

@@ -1,0 +1,84 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Tvorba postavy</h1>
+		</div>
+	</div>
+
+	<div class="row justify-content-center DD-row-15">
+		<div class="col-md-8">
+
+			{*form *}
+			{form characterForm}
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputCharname" class="text-light">Jméno postavy</label>
+					<input name="jmeno" type="text" id="inputCharname" class="form-control form-control-lg" placeholder="Jméno postavy" required autofocus>
+					<small id="charnameHelpBlock" class="form-text text-muted">
+						Pojmenuj svoji postavu.
+					</small>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputGender" class="text-light">Pohlaví</label>
+					<select name="pohlavi" class="form-control" id="inputGender">
+						<option selected disabled hidden>Vyber pohlaví</option>
+						<option>Muž</option>
+						<option>Žena</option>
+					</select>
+					<small id="genderHelpBlock" class="form-text text-muted">
+						Zvol pohlaví své postavy.
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputRace" class="text-light">Rasa</label>
+					<select name="rasa" class="form-control" id="inputRace">
+						<option selected disabled hidden>Vyber rasu</option>
+						<option>Člověk</option>
+						<option>Elf</option>
+						<option>Nemrtvý</option>
+						<option>Ork</option>
+						<option>Temný elf</option>
+						<option>Trpaslík</option>
+					</select>
+					<small id="raceHelpBlock" class="form-text text-muted">
+						Zvol rasu své postavy.
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputClass" class="text-light">Povolání</label>
+					<select name="povolani" class="form-control" id="inputClass">
+						<option selected disabled hidden>Vyber povolání</option>
+						<option>Barbar</option>
+						<option>Kouzelník</option>
+						<option>Lučištník</option>
+						<option>Nekromancer</option>
+						<option>Paladin</option>
+						<option>Válečník</option>
+						<option>Zabiják</option>
+						<option>Zloděj</option>
+					</select>
+					<small id="classHelpBlock" class="form-text text-muted">
+						Zvol povolání své postavy.
+					</small>
+				</div>
+
+			</div>
+
+			<button class="btn btn-lg btn-outline-light btn-block" style="background-color: #2d0000;" type="submit">Vytvořit postavu</button>
+			{/form}
+
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,49 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Pán Jeskyně</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light" n:href="Dm:Default">Nadcházející a neukončená sezení</a>
+		<a class="nav-item nav-link text-light" n:href="Dm:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Dm:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Dm:Sittings">Sezení</a>
+	</nav>
+
+	<a role="button" n:href="Create:Quest" class="btn btn-outline-light btn-lg btn-block DD-bg-dark" style="margin-bottom: 15px;">Vytvořit dobrodružství</a>
+
+	{* seřazeny podle datum_vytvoření *}
+	{foreach $neukoncene_dobrodruzstvi as $row}
+	<!-- příznak 0 = neukončené -->
+	<div class="card" style="margin-bottom: 10px;"> 
+		<div class="card-body DD-bg-dark">
+			<h4 class="card-title">{$row['cil_dobrodruzstvi']}</h4>
+			<h6 class="card-title">{$row['cil_tazeni']}</h6>
+			<p class="card-text">
+				Počet sezení: {$row['pocet_sezeni']}
+			</p>
+			<a href="" class="btn btn-outline-light DD-bg-light">Přidat sezení</a> |
+			<a n:href="Dm:UkoncitDobrodruzstvi $row['ID_dobrodruzstvi']" class="btn btn-outline-light DD-bg-light">Ukončit dobrodružství</a>
+		</div>
+	</div>
+	{/foreach}
+	
+	
+	{foreach $ukoncene_dobrodruzstvi as $row}
+	<!-- příznak 1 = ukončené -->
+	<div class="card" style="margin-bottom: 10px;"> 
+		<div class="card-body DD-bg-dark">
+			<h4 class="card-title">{$row['cil_dobrodruzstvi']}</h4>
+			<h6 class="card-title">{$row['cil_tazeni']}</h6>
+			<p class="card-text">
+				Počet sezení: {$row['pocet_sezeni']}
+			</p>
+		</div>
+	</div>
+	{/foreach}
+</div>

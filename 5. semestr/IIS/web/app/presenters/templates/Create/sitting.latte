@@ -1,0 +1,62 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Tvorba sezení</h1>
+		</div>
+	</div>
+
+	<div class="row justify-content-center DD-row-15">
+		<div class="col-md-8">
+
+			{form sittingForm}
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputWhere" class="text-light">Místo konání</label>
+					<input name="kde" type="text" id="inputWhere" class="form-control" placeholder="Místo konání" required autofocus>
+					<small id="whereHelpBlock" class="form-text text-muted">
+						Zadej, kde se bude sezení konat (např. u Kuby doma).
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputWhen" class="text-light">Čas konaní</label>
+					<input name="kdy" type="datetime-local" id="inputWhen" class="form-control" placeholder="Čas konaní" required autofocus>
+					<small id="whenHelpBlock" class="form-text text-muted">
+						Zadej kdy se bude sezení konat. Je potřeba zadat i čas.
+					</small>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputQuest" class="text-light">Dobrodružství</label>
+					<select name="ID_dobrodruzstvi" class="form-control" id="inputQuest">
+						<option value="" disabled selected hidden>Vyber dobrodružství</option>
+
+						{foreach $dobrodruzstvi as $row}
+							<option value="{$row['ID_dobrodruzstvi']}">- {$row['cil']} ({$row['lokalita']})</option>
+						{/foreach}
+						
+						{* všechna autorova dobrodružství, která mají sezení s příznakem 2 *}
+						{* lze udělat jako kontrola na submit popř. jako trigger *}
+					</select>
+					<small id="questHelpBlock" class="form-text text-muted">
+						Zvol jakého dobrodružství je sezení součástí. Nesmí existovat jiné otevřené sezení k danému dobrodružství.
+					</small>
+				</div>
+
+			</div>
+
+			<button class="btn btn-lg btn-outline-light btn-block" style="background-color: #2d0000;" type="submit">Vytvořit sezení</button>
+			{/form}
+
+		</div>
+	</div>
+
+</div>

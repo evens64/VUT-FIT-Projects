@@ -1,0 +1,144 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Pán Jeskyně</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Dm:Default">Nadcházející a neukončená sezení</a>
+		<a class="nav-item nav-link text-light" n:href="Dm:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light" n:href="Dm:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Dm:Sittings">Sezení</a>
+	</nav>
+
+	{* seřazeny podle kdy - pouze příznak 0 & 2 *}
+
+
+	{foreach $spustene_sezeni as $row}
+		<!-- příznak 2 = spuštěné -->
+		<div class="card" style="margin-bottom: 10px;">
+
+			<div class="card-body DD-bg-dark">
+				<h4 class="card-title">
+					<span class="badge badge-primary">!</span> {$row['tazeni']}
+				</h4>
+				<h6 class="card-subtitle mb-2 text-muted">{$row['dobrodruzstvi']}</h6>
+				<p class="card-text">
+					Místo: {$row['kde']} <br>
+					Čas: {date_format($row['kdy'],"d.m.Y H:i")}
+				</p>
+			</div> {* card-body *}
+
+			<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+				<div class="row DD-row-0">
+
+					<div class="col-md-6">
+						<a n:href="Game:Default $row['ID_sezeni']" class="btn btn-outline-light DD-bg-light">Pokračovat</a>
+						<a n:href="Dm:UkoncitSezeni $row['ID_sezeni']" class="btn btn-outline-light DD-bg-light">Ukončit</a>
+					</div>
+
+				</div> {* row *}
+			</div> {* card-footer *}
+
+		</div> {* card *}
+	{/foreach}
+
+
+	{foreach $neukoncene_prosle_sezeni as $row}
+		<!-- příznak 0 = neukončené, prošlé -->
+		<div class="card" style="margin-bottom: 10px;">
+
+			<div class="card-body DD-bg-dark">
+				<h4 class="card-title">
+					<span class="badge badge-warning">!</span> {$row['tazeni']}
+				</h4>
+				<h6 class="card-subtitle mb-2 text-muted">{$row['dobrodruzstvi']}</h6>
+				<p class="card-text">
+					Místo: {$row['kde']} <br>
+					Čas: {date_format($row['kdy'],"d.m.Y H:i")}
+				</p>
+			</div> {* card-body *}
+
+			<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+				<div class="row DD-row-0">
+
+					<div class="col-md-6">
+						<a n:href="Dm:SpustitSezeni $row['ID_sezeni']" class="btn btn-outline-light DD-bg-light">Spustit</a> |
+						<a n:href="Dm:UkoncitSezeni $row['ID_sezeni']" class="btn btn-outline-light DD-bg-light">Ukončit</a>
+					</div>
+
+					<div class="col-md-6">
+						{form changeDateAndTimeForm}
+						<div class="input-group">
+							
+								<input name="ID_sezeni" value="{$row['ID_sezeni']}" type="hidden">
+								<input name="kde" type="text" class="form-control" placeholder="Místo konaní" value="{date($row['kde'])}" aria-label="Místo konaní">
+								<input name="kdy" type="datetime-local" class="form-control" placeholder="Čas konání" value="{$row['kdy']}" aria-label="Čas konání">
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-outline-light DD-bg-light" type="button">Změnit</button>
+								</span>
+							
+						</div>
+						{/form}
+					</div>
+
+				</div> {* row *}
+
+			</div> {* card-footer *}
+
+		</div> {* card *}
+	{/foreach}
+
+
+	{foreach $neukoncene_sezeni as $row}
+		<!-- příznak 0 = neukončené -->
+		<div class="card" style="margin-bottom: 10px;">
+
+			<div class="card-body DD-bg-dark">
+				<h4 class="card-title"> {$row['tazeni']}</h4>
+					<h6 class="card-subtitle mb-2 text-muted"> {$row['dobrodruzstvi']}</h6>
+				<p class="card-text">
+					Místo: {$row['kde']} <br>
+					Čas: {date_format($row['kdy'],"d.m.Y H:i")}
+				</p>
+			</div>
+
+			<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+				<div class="row DD-row-0">
+					<div class="col-md-6">
+						<a n:href="Dm:SpustitSezeni $row['ID_sezeni']" class="btn btn-outline-light DD-bg-light">Spustit</a> |
+						<a n:href="Dm:UkoncitSezeni $row['ID_sezeni']" class="btn btn-outline-light DD-bg-light">Ukončit</a>
+					</div>
+
+					<div class="col-md-6">
+					
+						{form changeDateAndTimeForm}
+						<div class="input-group">
+							<input name="ID_sezeni" value="{$row['ID_sezeni']}" type="hidden">
+							<input name="kde" type="text" class="form-control" placeholder="Místo konaní" value="{$row['kde']}" aria-label="Místo konaní">
+							<input name="kdy" type="datetime-local" class="form-control" value="{$row['kdy']}" placeholder="Čas konání" aria-label="Čas konání">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-outline-light DD-bg-light" type="button">Změnit</button>
+							</span>
+						
+						</div>
+						{/form}
+					</div>
+
+				</div> {* row *}
+
+			</div> {* card-footer *}
+
+		</div> {* card *}
+	{/foreach}
+
+
+
+</div>

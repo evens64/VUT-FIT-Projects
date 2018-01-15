@@ -1,0 +1,116 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Registrace</h1>
+		</div>
+	</div>
+	
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+				{form registrationForm}
+				<div class="form-row">
+
+					<div class="form-group col">
+						<label for="inputUsername" class="text-light">Uživatelské jméno</label>
+						<input name="uziv_jmeno" type="text" id="inputUsername" class="form-control form-control-lg" placeholder="Uživatelské jméno" maxlength="25" required autofocus>
+						<small id="usernameHelpBlock" class="form-text text-muted">
+							Pomocí tohoto jména se budeš přihlašovat.
+						</small>
+					</div>
+
+					<div class="form-group col">
+						<label for="inputNickname" class="text-light">Přezdívka (nepovinné)</label>
+						<input name="prezdivka" type="text" id="inputNickname" class="form-control form-control-lg" placeholder="Přezdívka (nepovinné)" maxlength="50">
+						<small id="nicknameHelpBlock" class="form-text text-muted">
+							Pod tímto tě uvidí ostatní hráči. Pokud nezadáš, bude jako přezdívka použito tvoje uživatelské jméno.
+						</small>
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col">
+						<label for="inputFirstname" class="text-light">Křestní jméno (nepovinné)</label>
+						<input name="krestni_jmeno" type="text" id="inputFirstname" class="form-control" placeholder="Křestní jméno (nepovinné)" maxlength="25">
+						<small id="firstnameHelpBlock" class="form-text text-muted">
+							Tvoje křestní jméno. Nepovinné.
+						</small>
+					</div>
+
+					<div class="form-group col">
+						<label for="inputSurname" class="text-light">Příjmení (nepovinné)</label>
+						<input name="prijmeni" type="text" id="inputSurname" class="form-control" placeholder="Příjmení (nepovinné)" maxlength="25">
+						<small id="surnameHelpBlock" class="form-text text-muted">
+							Tvoje příjmení. Nepovinné.
+						</small>
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col">
+						<label for="inputEmail" class="text-light">E-mailová adresa</label>
+						<input name="email" type="email" id="inputEmail" class="form-control" placeholder="E-mailová adresa" maxlength="50" required>
+						<small id="emailHelpBlock" class="form-text text-muted">
+							Tvůj e-mail.
+						</small>
+					</div>
+					
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col">
+						<label for="inputPasswordFirst" class="text-light">Heslo</label>
+						<input name="heslo" type="password" id="inputPasswordFirst" class="form-control" placeholder="Heslo" maxlength="25" required>
+						<small id="password01HelpBlock" class="form-text text-muted">
+							Zadej heslo. Musí být delší jak 5 znaků.
+						</small>
+					</div>
+
+					<div class="form-group col">
+						<label for="inputPasswordSecond" class="text-light">Heslo znovu</label>
+						<input name="heslo2" type="password" id="inputPasswordSecond" class="form-control" placeholder="Heslo znovu" maxlength="25" required>
+						<small id="password02HelpBlock" class="form-text text-muted">
+							Zadej heslo znovu. Musí se shodovat.
+						</small>
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col">
+						<label for="inputDate" class="text-light">Datum narození</label>
+						<input name="datum_narozeni" type="date" id="inputDate" class="form-control" placeholder="Datum Narození" value={php echo '"' . StrFTime("%Y-%m-%d", Time()) . '"'; }>
+						<small id="dateHelpBlock" class="form-text text-muted">
+							Pro registraci musíš být starší 15-ti let.
+						</small>
+					</div>
+
+					<div class="form-group col">
+						<label for="inputSex" class="text-light">Pohlaví</label>
+						<select name="pohlavi" class="form-control" id="inputSex">
+							<option value="0" selected disabled hidden>Vyber pohlaví</option>
+							<option value="M">Muž</option>
+							<option value="F">Žena</option>
+						</select>
+						<small id="sexHelpBlock" class="form-text text-muted">
+							Zvol své pohlaví.
+						</small>
+					</div>
+
+				</div>
+
+				<button class="btn btn-lg btn-outline-light btn-block" style="background-color: #2d0000;" type="submit">Registrovat</button>
+				{/form}
+		</div>
+	</div>
+
+</div>
+{/block}

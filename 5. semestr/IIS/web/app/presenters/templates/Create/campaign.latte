@@ -1,0 +1,45 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Tvorba tažení</h1>
+		</div>
+	</div>
+
+	<div class="row justify-content-center DD-row-15">
+		<div class="col-md-8">
+
+			{form campaignForm}
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputObjective">Cíl tažení</label>
+					<input name="cil" type="text" id="inputObjective" class="form-control form-control-lg" placeholder="Cíl tažení" required autofocus>
+					<small id="objectiveHelpBlock" class="form-text text-muted">
+						Např. Zničit Prsten moci a svrhnout Saurona, pokud hrajete ve světě Pána prstenů.
+					</small>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputMap">Svět</label>
+					<input name="mapa" type="text" id="inputMap" class="form-control" placeholder="Svět" required>
+					<small id="mapHelpBlock" class="form-text text-muted">
+						Např. Středozem (Pán prstenů), Kontinent (Zaklínač), Alagaësia (Odkaz Dračích jezdců)
+					</small>
+				</div>
+
+			</div>
+
+			<button class="btn btn-lg btn-outline-light btn-block" style="background-color: #2d0000;" type="submit">Vytvořit tažení</button>
+			{/form}
+
+		</div>
+	</div>
+
+</div>

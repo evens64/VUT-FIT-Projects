@@ -1,0 +1,14 @@
+{block content}
+
+<div class="container">
+
+	<div class="jumbotron text-light" style="background-color: #2d0000;">
+		<h1 class="display-2">Vítej, dobrodruhu!</h1>
+		<p class="lead">Jako každý den tě tu čeká spousta dobrodružství!!!</p>
+		{if !($user->isLoggedIn())}
+			<a class="btn btn-lg btn-outline-light" style="background-color: #4d0000;" n:href="Registration:Default" role="button">Registrovat »</a>
+		{/if}
+	</div>
+
+</div>
+{/block}

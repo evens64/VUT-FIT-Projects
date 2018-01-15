@@ -1,0 +1,106 @@
+{block content}
+
+<div class="container text-light">
+
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Administrace</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light" n:href="Admin:Default">Žádosti</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Users">Uživatelé</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Characters">Postavy</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Admin:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Sittings">Sezení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Items">Předměty</a>
+	</nav>
+
+	{* content *}
+
+	{foreach $dobrodruzstvi as $row}
+	<div class="card" style="margin-bottom: 10px;">
+		{form changeQuestsForm}
+		<div class="card-body DD-bg-dark">
+			<input name="ID_dobrodruzstvi" type="hidden" value="{$row['ID_dobrodruzstvi']}" >
+				
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputObjective" class="text-light">Cíl dobrodružství</label>
+					<input name="cil" type="text" id="inputObjective" class="form-control" placeholder="Cíl dobrodružství" maxlength="50" value="{$row['cil']}" required>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputMap" class="text-light">Lokalita</label>
+					<input name="lokalita" type="text" id="inputMap" class="form-control" placeholder="Lokalita" maxlength="25" value="{$row['lokalita']}" required>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col"> {* nefunguje *}
+					<label for="inputCampaign" class="text-light">Tažení</label>
+					<select name="ID_tazeni" class="form-control" id="inputCampaign">
+						<option value="-1">Samostatné dobrodružství</option>
+						<option disabled></option>
+						<option>Tažení</option>
+						<option>Tažení</option>
+						<option>Tažení</option>
+					</select>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputDate" class="text-light">Datum vytvoření</label>
+					<input name="prezdivka" type="date" id="inputDate" class="form-control" value="{$row['datum_vytvoreni']}" >
+				</div>
+
+				<div class="form-group col">
+					<label for="inputDifficulty" class="text-light">Obtížnost</label>
+					<select name="obtiznost" class="form-control" id="inputDifficulty">
+						<option value="1" {if ($row['obtiznost'] == 1)}selected{/if}>1</option>
+						<option value="2" {if ($row['obtiznost'] == 2)}selected{/if}>2</option>
+						<option value="3" {if ($row['obtiznost'] == 3)}selected{/if}>3</option>
+						<option value="4" {if ($row['obtiznost'] == 4)}selected{/if}>4</option>
+						<option value="5" {if ($row['obtiznost'] == 5)}selected{/if}>5</option>
+					</select>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputFlag" class="text-light">Příznak</label>
+					<select name="priznak" class="form-control" id="inputFlag">
+						<option value="0" {if ($row['priznak'] == '0')}selected{/if}>neukončené</option>
+						<option value="1" {if ($row['priznak'] == '1')}selected{/if}>ukončené</option>
+					</select>
+				</div>
+
+			</div>
+
+		</div> {* card-body *}
+		<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+			<div class="row justify-content-end DD-row-0">
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<button type="submit" class="btn btn-outline-light DD-bg-light">Uložit změny</button>
+					<a n:href="Admin:SmazatDobrodruzstvi $row['ID_dobrodruzstvi']" class="btn btn-outline-light DD-bg-light">Smazat dobrodružství</a>
+				</div>
+			</div> {* row *}
+
+		</div> {* card-footer *}
+		{/form}
+	</div> {* card *}
+	{/foreach}
+
+</div>

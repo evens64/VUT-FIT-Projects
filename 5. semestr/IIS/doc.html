@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>Projekt IIS</title>
+	<style type="text/css">
+		body {background-color: #4d0000; color: white; }
+		table { border-collapse: collapse; }
+		td, th { border: 1px solid white; padding: 0.3em 0.5em; text-align: left; }
+		dt { font-weight: bold; margin-top: 0.5em; }
+		a { text-decoration: none; }
+		a:link { color: grey; }
+		a:visited { color: #bbbbbb; }
+		a:hover { text-decoration: underline; }
+		a:active { color: white; }
+	</style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu
+     podle použitého editoru -->
+
+<h1>Portál hráčů Dračího doupěte</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl style="margin-bottom: 25px">
+	<dt>Autoři</dt>
+	<dd>Filip Dostálík <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+		<a href="mailto:xdosta46@stud.fit.vutbr.cz">xdosta46@stud.fit.vutbr.cz</a>
+		 - backend
+	</dd>
+	<dd>Jakub Frýz <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+		<a href="mailto:xfryzj01@stud.fit.vutbr.cz">xfryzj01@stud.fit.vutbr.cz</a>
+		 - frontend
+	</dd>
+	<dd>Jakub Hud <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+		<a href="mailto:xhudja00@stud.fit.vutbr.cz">xhudja00@stud.fit.vutbr.cz</a>
+		 - databáze
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://doupe.luncker.cz/">http://doupe.luncker.cz/</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+
+<table style="margin-bottom: 25px">
+<tr>
+	<th>Login</th><th>Heslo</th><th>Role</th>
+</tr>
+<tr>
+	<td>admin</td><td>admin</td><td>Admin, Pán jeskyně</td>
+</tr>
+<tr>
+	<td>dmaster</td><td>dmaster</td><td>Pán jeskyně</td>
+</tr>
+<tr>
+	<td>gamer</td><td>gamer</td><td>Hráč</td>
+</tr>
+</table>
+
+<h2>Implementace</h2>
+
+<ul style="margin-bottom: 10px">
+	<li>Změny od use-case diagramu</li>
+	<ul>
+		<li>Oddělili jsme Pána jeskyně a Admina
+		<br>(Ne každý admin se hodí na PJ)
+		</li>
+		<li>Tvorbu tažení, dobrodružství a sezení jsme ponechali pouze pánu jeskyně
+		<br>(Bylo to v plánu, ale pro správnou funkčnost by muselo být implementováno i nějaké fórum, kde by se např. hledali PJ, atd.)</li>
+		<li>Přihlášení k sezení se neřeší přes pozvánky, hráči můžou automaticky, jak je sezení vytvořeno, si k němu přihlásit svoji postavu</li>
+	</ul>
+</ul>
+
+
+<table style="border: 0px; margin-bottom: 10px;">
+	<tr style="border: 0px">
+		<th style="border: 0px">Cesta k presenterům:</th>
+		<td style="border: 0px">/app/presenters/</td>
+	</tr>
+	<tr style="border: 0px">
+		<th style="border: 0px">Cesta k templatům:</th>
+		<td style="border: 0px">/app/presenters/templates/</td>
+	</tr>
+</table>
+
+
+<table>
+<tr>
+	<th>Připad</th><th>Presenter</th><th>Template</th>
+</tr>
+
+<tr>
+	<td>zaregistrovatSe</td><td>RegistrationPresenter.php</td><td>Registration/default.latte</td>
+</tr>
+
+<tr>
+	<td>vytvoritTazeni</td><td>CreatePresenter.php</td><td>Create/campaign.latte</td>
+</tr>
+
+<tr>
+	<td>vytvoritDobrodruzstvi</td><td>CreatePresenter.php</td><td>Create/quest.latte</td>
+</tr>
+
+<tr>
+	<td>vytvoritSezeni</td><td>CreatePresenter.php</td><td>Create/sitting.latte</td>
+</tr>
+
+<tr>
+	<td>vytvoritPostavu</td><td>CreatePresenter.php</td><td>Create/character.latte</td>
+</tr>
+
+<tr>
+	<td>poslatZadostOTitulPJAdminovi</td><td>UserPresenter.php</td><td>User/settings.latte</td>
+</tr>
+
+<tr>
+	<td>schvalitZadostOTitulPJ</td><td>AdminPresenter.php</td><td>Admin/default.latte</td>
+</tr>
+
+<tr>
+	<td>editovatHrace</td><td>AdminPresenter.php</td><td>Admin/users.latte</td>
+</tr>
+
+<tr>
+	<td rowspan="2">editovatPostavu</td><td rowspan="2">AdminPresenter.php</td><td>Admin/characters.latte</td>
+</tr>
+<tr>
+	<td>Admin/charactersdead.latte</td>
+</tr>
+
+<tr>
+	<td>editovatTazeni</td><td>AdminPresenter.php</td><td>Admin/campaigns.latte</td>
+</tr>
+
+<tr>
+	<td>editovatDobrodruzstvi</td><td>AdminPresenter.php</td><td>Admin/quests.latte</td>
+</tr>
+
+<tr>
+	<td>editovatSezeni</td><td>AdminPresenter.php</td><td>Admin/sittings.latte</td>
+</tr>
+
+<tr>
+	<td>zapsatVysledkySezeni</td><td>GamePresenter.php</td><td>Game/default.latte</td>
+</tr>
+</table>
+
+<h2>Instalace</h2>
+
+<ul>
+	<li>Požadavky na instalaci</li>
+	<ul>
+		<li>PHP 7.1</li>
+		<li>Nette 2.4</li>
+		<li>Bootstrap 4.0</li>
+	</ul>
+	<li>Podle návodu na nette.org se nainstaluje nette (manuálně nebo přes Composer)</li>
+	<li>V archívu jsou pak složky 'app' a 'www', ty stačí přesunout do kořene serveru</li>
+	<li>Následně stačí importovat přibalenou databázi (např. pomocí phpMyAdmin)</li>
+	<li>Server by nyní měl fungovat</li>
+</ul>
+
+<h2>Známé problémy</h2>
+
+<ul>
+	<li>Debuger je zapnut, protože když se vypne všechny formuláře hážou 500 (důvod víme, řešení však ne)
+	<br>Z toho důvodu, pokud vyskočí výjimka, objeví se výpis z debugeru</li>
+	<li>Nefunguje hra (spuštění sezení v menu Pán Jeskyně)
+	<br>Lze ji spustit, ale nejde ji hrát (nelze tedy ani zabít postavu)</li>
+	<li>Admin nemůže tvořit ani mazat, pouze editovat</li>
+	<li>Není možnost vytisknout hromadnou statistiku</li>
+	<li>Nefunguje úprava datumu</li>
+</ul>
+
+<h2>Poznámka</h2>
+
+<p>
+	Všechny soubory, které se nevešli do archivu (dokumentace z minulých let, atd.), jsou zde:
+	<a target="_blank" href="https://drive.google.com/drive/folders/12Q_crVF6x9gNbnb04guz5NqNtOF6HZw0?usp=sharing">Google Disk</a>
+</p>
+
+</body>
+</html>

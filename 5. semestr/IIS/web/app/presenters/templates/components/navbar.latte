@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md navbar-dark text-light fixed-top" style="background-color: #2d0000;">
+	<div class="container">
+
+		<a class="navbar-brand" href="/">Portál hráčů Dračího doupěte</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+
+			<div class="btn-group ml-auto" role="group" aria-label="login">
+
+			{if !($user->isLoggedIn())}
+				<!-- NOT LOGGGED IN -->
+				<a role="button" class="btn btn-outline-light" style="background-color: #4d0000;" n:href="Login:Default">Přihlášení</a>
+				<a role="button" class="btn btn-outline-light" style="background-color: #4d0000;" n:href="Registration:Default">Registrace</a>
+			{else}
+				<!-- LOGGGED IN -->
+				<button type="button" style="background-color: #4d0000;" class="btn btn-outline-light">{$user->identity->prezdivka}</button>
+				<button type="button" style="background-color: #4d0000;" class="btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+					<div class="dropdown-menu">
+					<a class="dropdown-item DD-ddi-dark" n:href="User:Default">Profil</a>
+					<a class="dropdown-item DD-ddi-dark" n:href="User:Settings">Nastavení</a>
+					<div class="dropdown-divider"></div>
+					{if $user->identity->admin}
+					<a class="dropdown-item DD-ddi-dark" n:href="Admin:Default">Administrace</a>
+					{/if}
+					{if $user->identity->pan_jeskyne}
+					<a class="dropdown-item DD-ddi-dark" n:href="Dm:Default">Pán Jeskyně</a>
+					{/if}
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item DD-ddi-dark" n:href="Login:out">Odhlásit se</a>
+				</div>
+			{/if}
+			</div>
+
+		</div>
+
+	</div>
+</nav>

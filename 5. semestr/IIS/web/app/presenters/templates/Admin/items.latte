@@ -1,0 +1,89 @@
+{block content}
+
+<div class="container text-light">
+
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Administrace</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light" n:href="Admin:Default">Žádosti</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Users">Uživatelé</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Characters">Postavy</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Sittings">Sezení</a>
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Admin:Items">Předměty</a>
+	</nav>
+
+	{* content *}
+	{foreach $predmety as $predmet}
+	<div class="card" style="margin-bottom: 10px;">
+	{form changeItemsForm}
+		<div class="card-body DD-bg-dark">
+			<input name="ID_predmetu" type="hidden" value="{$predmet['ID_predmetu']}" >
+				
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputMap" class="text-light">Název předmětu</label>
+					<input name="nazev" type="text" id="inputMap" class="form-control" placeholder="Název" maxlength="25" value="{$predmet['nazev']}" required>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputMap" class="text-light">Popis předmětu</label>
+					<input name="popis" type="text" id="inputMap" class="form-control" placeholder="Popis" maxlength="25" value="{$predmet['popis']}">
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col"> {* nefunguje *}
+					<label for="inputCampaign" class="text-light">Kvalita</label>
+					<select name="kvalita" class="form-control" id="inputCampaign">
+						<option value="0" {if ($predmet['kvalita'] == 0)}selected{/if}>0</option>
+						<option value="1" {if ($predmet['kvalita'] == 1)}selected{/if}>1</option>
+						<option value="2" {if ($predmet['kvalita'] == 2)}selected{/if}>2</option>
+						<option value="3" {if ($predmet['kvalita'] == 3)}selected{/if}>3</option>
+						<option value="4" {if ($predmet['kvalita'] == 4)}selected{/if}>4</option>
+						<option value="5" {if ($predmet['kvalita'] == 5)}selected{/if}>5</option>
+					</select>
+				</div>
+
+				<div class="form-group col"> {* nefunguje *}
+					<label for="inputCampaign" class="text-light">Typ</label>
+					<select name="priznak" class="form-control" id="inputCampaign">
+						<option value="0" {if ($predmet['priznak'] == NULL)}selected{/if}>Ostatní</option>
+						<option value="C" {if ($predmet['priznak'] == "C")}selected{/if}>Poživatelné</option>
+						<option value="A" {if ($predmet['priznak'] == "A")}selected{/if}>Zbroj</option>
+						<option value="W" {if ($predmet['priznak'] == "W")}selected{/if}>Zbraň</option>
+					</select>
+				</div>
+
+			</div>
+
+		</div> {* card-body *}
+		<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+			<div class="row justify-content-end DD-row-0">
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<button type="submit" class="btn btn-outline-light DD-bg-light">Uložit změny</button>
+					<a n:href="Admin:SmazatPredmet $predmet['ID_predmetu']" class="btn btn-outline-light DD-bg-light">Smazat předmět</a>
+				</div>
+			</div> {* row *}
+
+		</div> {* card-footer *}
+		{/form}
+	</div> {* card *}
+	{/foreach}
+
+
+</div>

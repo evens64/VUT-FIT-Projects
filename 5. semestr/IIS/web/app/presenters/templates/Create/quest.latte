@@ -1,0 +1,82 @@
+{block content}
+
+<div class="container text-light">
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Tvorba dobrodružství</h1>
+		</div>
+	</div>
+
+	<div class="row justify-content-center DD-row-15">
+		<div class="col-md-8">
+
+			{form questForm}
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputObjective" class="text-light">Cíl dobrodružství</label>
+					<input name="cil" type="text" id="inputObjective" class="form-control form-control-lg" placeholder="Cíl dobrodružství" required autofocus>
+					<small id="campaignHelpBlock" class="form-text text-muted">
+						Např. Pomoct lidem Ronanu porazit hrozbu, pokud hrajete ve světě Pána prstenů.
+					</small>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputCampaign" class="text-light">Tažení</label>
+					<select name="ID_tazeni" class="form-control" id="inputCampaign">
+						<option disabled selected hidden>Vyber tažení</option>
+							<option value="">Samostatné dobrodružství</option>
+							<option disabled></option>
+						{foreach $tazeni as $row}
+							<option value="{$row['ID_tazeni']}">{$row['cil']}</option>
+						{/foreach}
+						{* + všechna tažení s příznakem 0, kde je stejný autor jako je přihlášený uživatel, seřazená podle ID *}
+						
+					</select>
+					<small id="campaignHelpBlock" class="form-text text-muted">
+						Zvol jakého tažení je dobrodružství součástí. Vytvořit dobrodružství můžeš pouze pro svoje tažení. <br> Můžeš taky vytvořit samostatné dobrodružství.
+					</small>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputLocation" class="text-light">Lokalita</label>
+					<input name="lokalita" type="text" id="inputObjective" class="form-control" placeholder="Lokalita" required>
+					<small id="locationHelpBlock" class="form-text text-muted">
+						Např. Ronan, pokud je tažení ve světě Pána prstenů.
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputDifficulty" class="text-light">Obtížnost</label>
+					<select name="obtiznost" class="form-control" id="inputDifficulty">
+						<option disabled selected hidden>Vyber obtížnost</option>
+
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<small id="difficultyHelpBlock" class="form-text text-muted">
+						Čím větší, tím větší se očekává obtížnost.
+					</small>
+				</div>
+
+			</div>
+
+			<button class="btn btn-lg btn-outline-light btn-block" style="background-color: #2d0000;" type="submit">Vytvořit dobrodružství</button>
+			{/form}
+
+		</div>
+	</div>
+
+</div>

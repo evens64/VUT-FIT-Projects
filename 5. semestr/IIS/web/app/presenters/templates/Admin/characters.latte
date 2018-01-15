@@ -1,0 +1,140 @@
+{block content}
+
+<div class="container text-light">
+
+
+	<div class="row justify-content-center DD-row-15" style="margin-bottom: 25px;">
+		<div class="col-md-6">
+			<h1 class="display-4 text-center text-light">Administrace</h1>
+		</div>
+	</div>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light" n:href="Admin:Default">Žádosti</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Users">Uživatelé</a>
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Admin:Characters">Postavy</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Campaigns">Tažení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Quests">Dobrodružství</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Sittings">Sezení</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Items">Předměty</a>
+	</nav>
+
+	<nav class="nav nav-pills nav-justified" style="margin-bottom: 15px;">
+		<a class="nav-item nav-link text-light active DD-nav-dark" n:href="Admin:Characters">Živé postavy</a>
+		<a class="nav-item nav-link text-light" n:href="Admin:Charactersdead">Mrtvé postavy</a>
+	</nav>
+
+	{* content *}
+
+	{foreach $postavy as $postava}
+	<div class="card" style="margin-bottom: 10px;">
+		{form changeCharForm}
+		<div class="card-body DD-bg-dark">
+			<input name="ID_postavy" type="hidden" class="form-control" value={$postava['ID_postavy']} required autofocus>
+				
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputCharname" class="text-light">Jméno postavy</label>
+					<input name="jmeno" type="text" id="inputCharname" class="form-control" placeholder="Jméno postavy" value={$postava['jmeno']} required autofocus>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputGender" class="text-light">Pohlaví</label>
+					<select name="pohlavi" class="form-control" id="inputGender">
+						<option value='M' {if ($postava['pohlavi'] == 'M')}selected{/if}>Muž</option>
+						<option value='F' {if ($postava['pohlavi'] == 'F')}selected{/if}>Žena</option>
+					</select>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputRace" class="text-light">Rasa</label>
+					<select name="rasa" class="form-control" id="inputRace">
+						<option value="0" {if ($postava['rasa'] == "Člověk")}selected{/if}>Člověk</option>
+						<option value="1" {if ($postava['rasa'] == "Elf")}selected{/if}>Elf</option>
+						<option value="2" {if ($postava['rasa'] == "Nemrtvý")}selected{/if}>Nemrtvý</option>
+						<option value="3" {if ($postava['rasa'] == "Ork")}selected{/if}>Ork</option>
+						<option value="4" {if ($postava['rasa'] == "Temný elf")}selected{/if}>Temný elf</option>
+						<option value="5" {if ($postava['rasa'] == "Trpaslík")}selected{/if}>Trpaslík</option>
+					</select>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputClass" class="text-light">Povolání</label>
+					<select name="povolani" class="form-control" id="inputClass">
+						<option value="0" {if ($postava['povolani'] == "Barbar")}selected{/if}>Barbar</option>
+						<option value="0" {if ($postava['povolani'] == "Kouzelník")}selected{/if}>Kouzelník</option>
+						<option value="0" {if ($postava['povolani'] == "Lučištník")}selected{/if}>Lučištník</option>
+						<option value="0" {if ($postava['povolani'] == "Nekromancer")}selected{/if}>Nekromancer</option>
+						<option value="0" {if ($postava['povolani'] == "Paladin")}selected{/if}>Paladin</option>
+						<option value="0" {if ($postava['povolani'] == "Válečník")}selected{/if}>Válečník</option>
+						<option value="0" {if ($postava['povolani'] == "Zabiják")}selected{/if}>Zabiják</option>
+						<option value="0" {if ($postava['povolani'] == "Zloděj")}selected{/if}>Zloděj</option>
+					</select>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputLevel" class="text-light">Úroveň postavy</label>
+					<input name="stat_uroven" type="text" id="inputLevel" class="form-control" placeholder="Úroveň postavy" value={$postava['stat_uroven']} required autofocus>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+
+				<div class="form-group col">
+					<label for="inputLevel" class="text-light">XP</label>
+					<input name="stat_XP" type="text" id="inputLevel" class="form-control" placeholder="XP" value={$postava['stat_XP']} required autofocus>
+					<small id="XPHelpBlock" class="form-text text-muted">
+						MAX: úroveň * 1000
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputLevel" class="text-light">HP</label>
+					<input name="stat_HP" type="text" id="inputLevel" class="form-control" placeholder="HP" value={$postava['stat_HP']} required autofocus>
+					<small id="HPHelpBlock" class="form-text text-muted">
+						MAX: úroveň * 100
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputLevel" class="text-light">MN</label>
+					<input name="stat_MN" type="text" id="inputLevel" class="form-control" placeholder="MN" value={$postava['stat_MN']} required autofocus>
+					<small id="MNHelpBlock" class="form-text text-muted">
+						MAX: úroveň * 100
+					</small>
+				</div>
+
+				<div class="form-group col">
+					<label for="inputLevel" class="text-light">SP</label>
+					<input name="stat_SP" type="text" id="inputLevel" class="form-control" placeholder="SP" value={$postava['stat_SP']} required autofocus>
+					<small id="SPHelpBlock" class="form-text text-muted">
+						MAX: úroveň * 100
+					</small>
+				</div>
+
+			</div>
+
+
+		</div> {* card-body *}
+		<div class="card-footer text-muted DD-bg-dark" style="border-top: 1px solid white">
+
+			<div class="row justify-content-end DD-row-0">
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<button type="submit" class="btn btn-outline-light DD-bg-light">Uložit změny</button>
+					<a n:href="Admin:VyprazdnitInventar $postava['ID_postavy']" class="btn btn-outline-light DD-bg-light">Vyprázdnit inventář</a>
+					<a n:href="Admin:SmazatPostavu $postava['ID_postavy']" class="btn btn-outline-light DD-bg-light">Smazat postavu</a>
+				</div>
+			</div> {* row *}
+
+		</div> {* card-footer *}
+		{/form}
+	</div> {* card *}
+	{/foreach}
+
+</div>
