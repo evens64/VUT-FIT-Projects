@@ -6,7 +6,7 @@
 
 ## 2. semestr
 
-* [IVS](master/2.%20semestr/IVS)
+* [IVS](2. semestr/IVS)
 ## 3. semestr
 
 * IAL
